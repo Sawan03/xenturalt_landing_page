@@ -168,17 +168,17 @@
         display: block;
       }
 
-      .nav-items {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-        margin-top: 1rem;
-      }
+       .nav-items {
+    display: none !important;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 1rem;
+  }
 
-      .nav-items.show {
-        display: flex;
-      }
+  .nav-items.show {
+    display: flex !important;
+  }
 
       .nav-items a,
       .nav-items button,
@@ -211,7 +211,7 @@
   <!-- Top Strip -->
   <div class="top-strip">
     <div class="contact-info">
-      <img src="img/email.png" alt="Email Icon"> mitraroni15@gmail.com |
+      <img src="img/email.png" alt="Email Icon"> info@xenturaltcodes.in  |
       <img src="img/contact.png" alt="Phone Icon"> +91 7980 110 265
     </div>
     <div class="offer-text">
@@ -254,27 +254,44 @@
   </nav>
 
   <!-- JavaScript -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("toggleBtn");
-      const navItems = document.getElementById("navItems");
-      const dropdown = document.getElementById("dropdown");
-      const servicesLink = document.getElementById("servicesLink");
+  <script>document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("toggleBtn");
+  const navItems = document.getElementById("navItems");
+  const dropdown = document.getElementById("dropdown");
+  const servicesLink = document.getElementById("servicesLink");
 
-      toggleBtn.addEventListener("click", () => {
-        navItems.classList.toggle("show");
-      });
+  const updateNavVisibility = () => {
+    if (window.innerWidth <= 768) {
+      navItems.classList.remove("show");
+    } else {
+      navItems.classList.add("show");
+    }
+  };
 
-      // Toggle dropdown on mobile
-      servicesLink.addEventListener("click", (e) => {
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
-          e.preventDefault();
-          dropdown.classList.toggle("active");
-        }
-      });
+  updateNavVisibility(); // set initial visibility
+
+  if (toggleBtn && navItems) {
+    toggleBtn.addEventListener("click", () => {
+      navItems.classList.toggle("show");
     });
-  </script>
+  }
+
+  if (servicesLink && dropdown) {
+    servicesLink.addEventListener("click", (e) => {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+      }
+    });
+  }
+
+  // Handle resize (optional but recommended)
+  window.addEventListener("resize", updateNavVisibility);
+});
+
+</script>
+
 
 </body>
 </html>
