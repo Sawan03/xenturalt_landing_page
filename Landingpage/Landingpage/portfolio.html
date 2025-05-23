@@ -6,84 +6,12 @@
   <title>Our Projects - Page 1</title>
   <link rel="stylesheet" href="Demo.css">
 </head>
-<style>
-
-
-
-.projects-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin: 0;
-}
-
-h1 span {
-  color: #3B82F6;
-}
-
-#project-filter {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  background-color: #2b3148;
-  color: white;
-  border: none;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.project-type {
-  color: #3B82F6;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.project-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px;
-}
-
-.project-desc {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 10px;
-}
-
-.project-link {
-  color: #fff;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-
+<style>/* ========== BASE STYLES ========== */
 .projects-section {
   max-width: 1200px;
   width: 100%;
+  margin: auto;
+  padding: 20px;
 }
 
 .projects-header {
@@ -92,11 +20,12 @@ h1 span {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  gap: 20px;
 }
 
 h1 {
   color: black;
-  font-size: 53px;
+  font-size: 3.3rem;
   font-weight: bold;
   margin: 0;
 }
@@ -107,28 +36,29 @@ h1 span {
 
 #project-filter {
   padding: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 6px;
   background-color: #2b3148;
   color: white;
   border: none;
 }
 
+/* ========== GRID ========== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 50px;
   justify-items: center;
-  align-items: start;
 }
 
+/* ========== CARD STYLES ========== */
 .project-card {
   background-color: #f0ebeb69;
   border: 0.5px solid rgb(50, 47, 47);
   text-align: center;
   border-radius: 16px;
-  font-size: 30px;
   padding: 16px;
+  font-size: 18px;
   overflow: hidden;
   transition: transform 0.2s;
   width: 100%;
@@ -147,22 +77,22 @@ h1 span {
   margin-bottom: 10px;
 }
 
+/* ========== TEXT STYLES ========== */
 .project-type {
   color: #3B82F6;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .project-title {
-  /* background-color: black; */
-  color: black;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 10px 0 5px;
+  color: black;
 }
 
 .project-desc {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: black;
   margin-bottom: 10px;
 }
@@ -172,26 +102,32 @@ h1 span {
   text-decoration: underline;
   font-weight: bold;
 }
+
+/* ========== BUTTONS ========== */
+.project-button,
+.pagination button {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project-button:hover,
+.pagination button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 30px;
-}
-
-.pagination button {
-  background-color: #3b82f6; /* Blue background */
-  color: white;             /* White text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #2563eb; /* Darker blue on hover */
+  flex-wrap: wrap;
 }
 
 .pagination button:disabled {
@@ -199,66 +135,56 @@ h1 span {
   cursor: not-allowed;
 }
 
+/* ========== MEDIA QUERIES ========== */
 
-.project-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #3B82F6;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.project-button:hover {
-  background-color: #2563eb;
-}
-
-
-/* Tablet and below */
+/* Tablets and small desktops */
 @media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+  h1 {
+    font-size: 2.5rem;
   }
 
   .project-card {
-    max-width: 100%;
     font-size: 16px;
-  }
-
-  .projects-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  #project-filter {
-    margin-top: 10px;
-  }
-}
-
-/* Mobile (phones) */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-    text-align: center;
+    padding: 14px;
   }
 
   .project-card img {
     height: 160px;
   }
 
+  #project-filter {
+    font-size: 15px;
+  }
+
   .project-title {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
 
   .project-desc {
-    font-size: 13px;
+    font-size: 0.9rem;
+  }
+
+  .pagination button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .projects-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-card img {
+    height: 150px;
   }
 
   .pagination {
@@ -269,72 +195,15 @@ h1 span {
   .pagination button {
     width: 100%;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* Grid layout adapts to 2 columns */
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 44px;
-  }
-
-  /* Slightly reduce card size and font */
-  .project-card {
-    font-size: 18px;
-    padding: 14px;
-    max-width: 100%;
-  }
-
-  .project-card img {
-    height: 160px;
-  }
-
-  /* Make header stack vertically with spacing */
-  .projects-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  /* Adjust heading font for tablet */
-  h1 {
-    font-size: 2.5rem;
-    text-align: left;
-  }
-
-  /* Filter dropdown stretches to full width */
-  #project-filter {
-    margin-top: 10px;
-    /* width: 100%; */
-    font-size: 15px;
-  }
-
-  /* Adjust text sizes */
   .project-title {
-    font-size: 18px;
+    font-size: 1rem;
   }
 
   .project-desc {
-    font-size: 14px;
-  }
-
-  /* Pagination buttons stack if needed */
-  .pagination {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .pagination button {
-    padding: 8px 16px;
-    font-size: 14px;
+    font-size: 0.85rem;
   }
 }
-
-
-
-
 </style>
 <body>
 <div id="navbar"></div>
