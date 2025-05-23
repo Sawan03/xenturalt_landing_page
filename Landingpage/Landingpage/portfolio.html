@@ -180,8 +180,8 @@ h1 span {
 }
 
 .pagination button {
-  background-color: #2b3148;
-  color: white;
+  background-color: #3b82f6; /* Blue background */
+  color: white;             /* White text */
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
@@ -191,13 +191,33 @@ h1 span {
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #3b82f6;
+  background-color: #2563eb; /* Darker blue on hover */
 }
 
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+
+.project-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3B82F6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.project-button:hover {
+  background-color: #2563eb;
+}
+
 
 /* Tablet and below */
 @media (max-width: 1024px) {
@@ -329,9 +349,10 @@ h1 span {
     </div>
 
     <div class="pagination">
-      <button disabled>Next</button>
-      <a href="Demo.html"><button>Previous</button></a>
-    </div>
+  <button disabled>&larr; Prev</button>
+  <a href=""><button>Next &rarr;</button></a>
+</div>
+
   </section>
    <div id="footer-placeholder"></div>
   
@@ -345,14 +366,18 @@ h1 span {
     const projects = [
 
 
-    {
-      type: "wordpress",
-      title: "Realestate Project",
-      desc: "A modern real estate platform showcasing properties with seamless navigation and responsive design.",
-      image:
-        "https://www.letsbuild.com/wp-content/uploads/2023/07/Depositphotos_89120612_s-2019.jpg",
-      link: "https://www.actindustrial.co.uk/",
-    },
+  
+  {
+    type: "wordpress",
+    title: "Realestate Project",
+    desc: "A modern real estate platform showcasing properties with seamless navigation and responsive design.",
+    image: "https://www.letsbuild.com/wp-content/uploads/2023/07/Depositphotos_89120612_s-2019.jpg",
+    link: "https://www.actindustrial.co.uk/",
+  },
+
+
+
+
     {
       type: "wordpress",
       title: "Healthray Project",
@@ -442,25 +467,26 @@ h1 span {
     },
   ];
 
-    const grid = document.getElementById("projects-grid");
+   const grid = document.getElementById("projects-grid");
 
-    projects.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "project-card";
-      card.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <div class="project-title">${p.title}</div>
-        <div class="project-desc">${p.desc}</div>
-        <a href="${p.link}" class="project-link" target="_blank">Visit</a>
-      `;
-      grid.appendChild(card);
-    });
+projects.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "project-card";
+  card.innerHTML = `
+    <img src="${p.image}" alt="${p.title}">
+    <div class="project-title">${p.title}</div>
+    <div class="project-desc">${p.desc}</div>
+    <a href="${p.link}" class="project-button" target="_blank">Visit Project</a>
+  `;
+  grid.appendChild(card);
+});
 
-       fetch('navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('navbar').innerHTML = html;
-    });
+fetch('navbar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('navbar').innerHTML = html;
+  });
+
   </script>
 </body>
 </html>
