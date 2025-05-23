@@ -14,7 +14,51 @@
 <body>
 
 
- <div id="navbar"></div>
+ <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="contact-info">
+      <img src="img/email.png" alt="Email Icon"> info@xenturaltcodes.in |
+      <img src="img/contact.png" alt="Phone Icon"> +91 7980 110 265
+    </div>
+    <div class="offer-text">
+      Book Now – Unlock Exclusive Digital Growth Offers.
+      <a href="#">Claim Your Discount Today</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="logo">
+  <a href="index.html">
+    <img src="img/Layer_2-removebg-preview.png" alt="Logo" />
+  </a>
+</div>
+
+
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="nav-items" id="navItems">
+      <a href="About-us.html">About Us</a>
+
+      <!-- Dropdown -->
+      <div class="dropdown" id="dropdown">
+        <a href="#" id="servicesLink">Services ▾</a>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="Android.html">Android Development</a>
+          <a href="web-development.html">Web Development</a>
+          <a href="digital-ser.html">Digital Marketing</a>
+        </div>
+      </div>
+
+      <a href="portfolio.html">Our Work</a>
+      <a href="careers.html">Career</a>
+      <a href="course.html">Training</a>
+      <a href="contact-us.html">Contact Us</a>
+      <button class="outline-btn">Explore Solutions ➔</button>
+      <button class="primary-btn">Book A Free Consultation ➔</button>
+    </div>
+  </nav>
+
 <!-- 🔷 Hero Section -->
 <div class="hero">
   <!-- Left Content -->
@@ -477,67 +521,168 @@
   </div>
 </section>
 
+<!-- footer.html -->
+<section class="cta-banner">
+  <div class="cta-container">
+    <div class="cta-text">
+      <h2>Ready to Elevate Your Digital Presence?</h2>
+      <p>Let’s turn your vision into a high-performing digital reality.</p>
+    </div>
+    <div class="cta-button">
+      <a href="#" class="schedule-btn">Schedule A Call →</a>
+    </div>
+  </div>
+</section>
 
-  <div id="footer-placeholder"></div>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Left: Logo & Contact -->
+    <div class="footer-left">
+      <img src="img/Layer_2-removebg-preview.png" alt="Xenturalit Logo" class="logo" />
+      <p>📞 +91 7980 110 265</p>
+      <p>📧 info@xenturaltcodes.in</p>
+      <p>📍 SPO 208, Second floor<br />Sector 124, Sunny Enclave Mohali</p>
+    </div>
 
+    <!-- Right: Columns -->
+    <div class="footer-right">
+      <div class="footer-column">
+        <h4>COMPANY</h4>
+        <ul>
+          <li>About us</li>
+          <li>Portfolio</li>
+          <li>Career</li>
+        </ul>
+      </div>
+       <div class="footer-column">
+        <h4>RESOURCES</h4>
+        <ul>
+          <li>Blogs</li>
+          <li>FAQs</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>SERVICES</h4>
+        <ul>
+          <li>Web Development</li>
+          <li>Mobile app Development</li>
+          <li>SEO services</li>
+          <li>WordPress Development</li>
+          <li>Social media marketing</li>
+        </ul>
+      </div>
+     
+      <div class="footer-column">
+        <h4>LEGAL</h4>
+        <ul>
+          <li>Privacy policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <script>
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <div class="social-icons-left">
+      <a href="#"><img src="img/clutch.jpeg" alt="Clutch" /></a>
+      <a href="#"><img src="img/google.png" alt="Google" /></a>
+      <a href="#"><img src="img/hub.png" alt="Hub" /></a>
+      <a href="#"><img src="img/agency.png" alt="Agency" /></a>
+    </div>
+    <div class="social-icons-right">
+      <a href="#"><img src="img/facebook (1).png" alt="Facebook" /></a>
+      <a href="#"><img src="img/linkedin.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="img/instagram (1).png" alt="Instagram" /></a>
+    </div>
+  </div>
 
+  <div class="footer-bottom">
+    <p>Powered By Xenturalt Codes © 2025. All rights reserved.</p>
+    <button class="scroll-top">↑</button>
+  </div>
+</footer>
+ 
 
-  fetch('navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('navbar').innerHTML = html;
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // --- Tab switching logic ---
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        contents.forEach(c => c.classList.remove('active'));
+        const activeContent = document.getElementById(tab.dataset.tab);
+        if (activeContent) activeContent.classList.add('active');
+      });
     });
 
-     fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
-      // Simple tab switching logic
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-
-          contents.forEach(c => c.classList.remove('active'));
-          document.getElementById(tab.dataset.tab).classList.add('active');
-        });
-      });
-      // simple to create button
+    // --- Accordion (+ / -) logic ---
     const items = document.querySelectorAll(".accordion-item");
-     
-    // This is the function for + and - in the accordion
-     items.forEach(item => {
-     item.addEventListener("click", () => {
-      items.forEach(i => {
-       if (i !== item) {
-        i.classList.remove("active");
-        i.querySelector(".symbol").textContent = "+"; // Reset symbol for others
-      }
-    });
 
-    const isActive = item.classList.toggle("active");
-    const symbol = item.querySelector(".symbol");
-    symbol.textContent = isActive ? "−" : "+";
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        items.forEach(i => {
+          if (i !== item) {
+            i.classList.remove("active");
+            const symbol = i.querySelector(".symbol");
+            if (symbol) symbol.textContent = "+";
+          }
+        });
+
+        const isActive = item.classList.toggle("active");
+        const symbol = item.querySelector(".symbol");
+        if (symbol) symbol.textContent = isActive ? "−" : "+";
       });
     });
 
-     
-  
- const toggleBtn = document.getElementById("toggleBtn");
+    // --- Navbar toggle and dropdown ---
+    const toggleBtn = document.getElementById("toggleBtn");
     const navItems = document.getElementById("navItems");
+    const dropdown = document.getElementById("dropdown");
+    const servicesLink = document.getElementById("servicesLink");
 
-    toggleBtn.addEventListener("click", () => {
-      navItems.classList.toggle("show");
-    });
+    const updateNavVisibility = () => {
+      if (window.innerWidth <= 768) {
+        navItems?.classList.remove("show");
+      } else {
+        navItems?.classList.add("show");
+      }
+    };
 
+    updateNavVisibility(); // Set initial visibility
 
+    if (toggleBtn && navItems) {
+      toggleBtn.addEventListener("click", () => {
+        navItems.classList.toggle("show");
+      });
+    }
 
-    </script>
+    if (servicesLink && dropdown) {
+      servicesLink.addEventListener("click", (e) => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          e.preventDefault();
+          dropdown.classList.toggle("active");
+        }
+      });
+    }
+
+    // Optional: Recalculate on resize
+    window.addEventListener("resize", updateNavVisibility);
+  });
+
+  document.querySelector('.scroll-top').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
 </body>
 </html>
