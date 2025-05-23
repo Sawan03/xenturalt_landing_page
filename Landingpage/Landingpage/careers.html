@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Careers - Xenturalt Codes IT Solution Pvt Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Lato', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #3B82F6 0%, #232323 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .intro-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .intro-section h2 {
+      color: #3B82F6;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #3B82F6;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card .info {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+   .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #3B82F6;
+  color: white;
+  text-decoration: none;
+  border: none; /* <-- Add this line */
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-content h3 {
+      color: #3B82F6;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form input[type="file"] {
+      border: none;
+    }
+
+    form button {
+      background-color: #3B82F6;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+  <div class="header">
+    <h1>Career With Us</h1>
+    <p>We care about everyone. What’s your next is our first.</p>
+  </div>
+
+  <div class="container">
+    <div class="intro-section">
+      <h2>Careers at Xenturalt Codes IT Solution Pvt Ltd</h2>
+      <p>We’re more than a tech company — we’re a team of innovators, creators, and problem-solvers who believe in transforming businesses through smart technology, web design, and digital marketing.</p>
+      <p>If you're passionate, curious, and ready to grow, we’d love to work with you.</p>
+
+      <h3>🌟 Why Work With Us?</h3>
+      <ul>
+        <li>✅ A creative and collaborative work culture</li>
+        <li>✅ Opportunities for skill development and career growth</li>
+        <li>✅ Flexible work environment (remote options available)</li>
+        <li>✅ Hands-on experience with real projects</li>
+        <li>✅ Work with domestic, international, and local clients</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-bottom: 20px;">Open Positions</h2>
+    <div class="cards-container">
+      
+      <div class="card">
+        <h3>Web Designer (WordPress/Wix)</h3>
+        <p class="info"><strong>Experience:</strong> 1+ years</p>
+        <p class="info"><strong>Location:</strong> Remote / On-site</p>
+        <button class="btn" onclick="openModal('Web Designer (WordPress/Wix)', 'Create beautiful and responsive websites using WordPress or Wix. Must know basic SEO and have an eye for modern design.')">View Details</button>
+      </div>
+      <div class="card">
+        <h3>Digital Marketing Executive</h3>
+        <p class="info"><strong>Experience:</strong> 1–2 years</p>
+        <p class="info"><strong>Location:</strong> Remote / On-site</p>
+        <button class="btn" onclick="openModal('Digital Marketing Executive', 'Looking for someone experienced in Facebook Ads, Google Ads, Canva, SEO and Google My Business.')">View Details</button>
+      </div>
+      <div class="card">
+        <h3>Graphic Designer (Freelance)</h3>
+        <p class="info"><strong>Experience:</strong> 1+ years</p>
+        <p class="info"><strong>Location:</strong> Remote</p>
+        <button class="btn" onclick="openModal('Graphic Designer (Freelance)', 'Design engaging graphics using Canva and Adobe Photoshop/Illustrator. Must submit a portfolio.')">View Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="jobModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Job Title</h3>
+      <p id="modalDescription">Job description will appear here...</p>
+      <button class="btn" onclick="showApplyForm()">Apply Now</button>
+
+      <form id="applyForm" style="display:none;" onsubmit="submitApplication(event)">
+        <input type="hidden" id="jobRole" name="jobRole">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+        <input type="file" name="resume" required>
+        <textarea name="message" rows="4" placeholder="Why do you want to apply?" required></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+    <div id="footer-placeholder"></div>
+  <script>
+
+    fetch('navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('navbar').innerHTML = html;
+    });
+     
+     fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+
+    function openModal(title, description) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDescription').innerText = description;
+      document.getElementById('jobRole').value = title;
+      document.getElementById('applyForm').style.display = "none";
+      document.getElementById('jobModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('jobModal').style.display = 'none';
+    }
+
+    function showApplyForm() {
+      document.getElementById('applyForm').style.display = "block";
+    }
+
+    function submitApplication(event) {
+      event.preventDefault();
+      alert("Application submitted successfully!");
+      document.getElementById('applyForm').reset();
+      closeModal();
+    }
+
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('jobModal')) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

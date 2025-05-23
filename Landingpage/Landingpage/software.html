@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Software Development Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #F6F6F6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .breadcrumb {
+      padding: 20px;
+    }
+
+    .breadcrumb span {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .course-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+    }
+
+    .left-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 50%;
+      padding-right: 20px;
+    }
+
+    .right-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 50%;
+      text-align: center;
+    }
+
+    .right-content img {
+      width: 600px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons {
+      margin: 20px 0;
+    }
+
+    .buttons button:first-child {
+      background-color: #ee6d5a;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+
+    .buttons button:last-child {
+      background-color: white;
+      border: 2px solid #ee6d5a;
+      color: #ee6d5a;
+      padding: 10px 18px;
+      font-size: 18px;
+      border-radius: 6px;
+    }
+
+    .course-info {
+      background-color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #eee;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .info-item {
+      flex: 1;
+      min-width: 150px;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      .left-content, .right-content {
+        max-width: 100%;
+        padding-right: 0;
+      }
+
+      .right-content img {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+      }
+
+      .course-header {
+        padding: 20px;
+      }
+
+      .course-info {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .buttons button:first-child {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .buttons button:last-child {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <span><strong>Software Development Course</strong></span>
+  </div>
+
+  <!-- Course Header Section -->
+  <div class="course-header">
+    <!-- Left Side -->
+    <div class="left-content">
+      <p style="color: red; font-size: 14px; font-weight: bold;">#New</p>
+      <h1 style="font-size: 36px; font-weight: bold; margin: 10px 0;">Software Development Course</h1>
+      <p style="font-size: 16px; line-height: 1.6;">
+        Kickstart your software development journey with our comprehensive hands-on course. Ideal for aspiring developers, career switchers, and entrepreneurs building tech solutions.
+      </p>
+
+      <!-- Share Icon -->
+      <div style="margin: 20px 0;">
+        <img src="share-icon.png" alt="Share" style="width: 24px;">
+      </div>
+
+      <p style="font-size: 18px; font-weight: 600;">Limited Seats Available. Enroll Today!</p>
+
+      <!-- Buy Now and Download Buttons -->
+      <div class="buttons">
+        <button>Buy now</button>
+        <button>&#8681;</button>
+      </div>
+
+      <p style="font-size: 14px; color: #777;">* EMI Options Available</p>
+    </div>
+
+    <!-- Right Side (Video Image) -->
+    <div class="right-content">
+      <img src="img/software.jpg" alt="Software Development Course">
+    </div>
+  </div>
+
+  <!-- Course Info Row -->
+  <div class="course-info">
+    <div class="info-item">
+      <h3 style="margin: 0; font-size: 20px;">10 June 2025</h3>
+      <p style="margin: 5px 0; color: #777;">Date of Commencement</p>
+    </div>
+    <div class="info-item">
+      <h3 style="margin: 0; font-size: 20px;">4 Months</h3>
+      <p style="margin: 5px 0; color: #777;">Duration</p>
+    </div>
+    <div class="info-item">
+      <h3 style="margin: 0; font-size: 20px;">English + Hindi</h3>
+      <p style="margin: 5px 0; color: #777;">Language</p>
+    </div>
+    <div class="info-item">
+      <h3 style="margin: 0; font-size: 20px;">Internship + Job Support</h3>
+      <p style="margin: 5px 0; color: #777;">Career Assistance</p>
+    </div>
+    <div class="info-item">
+      <h3 style="margin: 0; font-size: 20px;">Live Classes + Projects</h3>
+      <p style="margin: 5px 0; color: #777;">Delivery Mode</p>
+    </div>
+  </div>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      })
+      .catch(error => {
+        console.error("Error loading navbar:", error);
+      });
+       fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

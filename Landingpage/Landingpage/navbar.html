@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Navbar with Dropdown</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      font-size: 14px;
+      background: #F6F6F6;
+      color: #000;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #000;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info img {
+      width: 13px;
+      height: 13px;
+      margin-right: 5px;
+    }
+
+    .top-strip a {
+      color: #000;
+      text-decoration: underline;
+      margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .top-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #F6F6F6;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo img {
+      width: 217px;
+      height: auto;
+    }
+
+    .toggle-btn {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .nav-items a,
+    .nav-items button {
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .nav-items a::after,
+    .dropdown > a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #ff6b35;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-items a:hover::after,
+    .dropdown:hover > a::after {
+      width: 100%;
+    }
+
+    .nav-items button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .outline-btn {
+      background: transparent;
+      color: #ff6b35;
+      border: 1px solid #ff6b35;
+    }
+
+    .primary-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      min-width: 200px;
+      border-radius: 5px;
+      flex-direction: column;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f3f3f3;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .toggle-btn {
+        display: block;
+      }
+
+      .nav-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        margin-top: 1rem;
+      }
+
+      .nav-items.show {
+        display: flex;
+      }
+
+      .nav-items a,
+      .nav-items button,
+      .dropdown {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-content {
+        position: relative;
+        box-shadow: none;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+
+      .dropdown.active .dropdown-content {
+        display: flex;
+      }
+
+      .dropdown-content a {
+        padding-left: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="contact-info">
+      <img src="img/email.png" alt="Email Icon"> mitraroni15@gmail.com |
+      <img src="img/contact.png" alt="Phone Icon"> +91 7980 110 265
+    </div>
+    <div class="offer-text">
+      Book Now – Unlock Exclusive Digital Growth Offers.
+      <a href="#">Claim Your Discount Today</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="logo">
+  <a href="index.html">
+    <img src="img/Layer_2-removebg-preview.png" alt="Logo" />
+  </a>
+</div>
+
+
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="nav-items" id="navItems">
+      <a href="About-us.html">About Us</a>
+
+      <!-- Dropdown -->
+      <div class="dropdown" id="dropdown">
+        <a href="#" id="servicesLink">Services ▾</a>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="Android.html">Android Development</a>
+          <a href="web-development.html">Web Development</a>
+          <a href="digital-ser.html">Digital Marketing</a>
+        </div>
+      </div>
+
+      <a href="portfolio.html">Our Work</a>
+      <a href="careers.html">Career</a>
+      <a href="course.html">Training</a>
+      <a href="contact-us.html">Contact Us</a>
+      <button class="outline-btn">Explore Solutions ➔</button>
+      <button class="primary-btn">Book A Free Consultation ➔</button>
+    </div>
+  </nav>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("toggleBtn");
+      const navItems = document.getElementById("navItems");
+      const dropdown = document.getElementById("dropdown");
+      const servicesLink = document.getElementById("servicesLink");
+
+      toggleBtn.addEventListener("click", () => {
+        navItems.classList.toggle("show");
+      });
+
+      // Toggle dropdown on mobile
+      servicesLink.addEventListener("click", (e) => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          e.preventDefault();
+          dropdown.classList.toggle("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

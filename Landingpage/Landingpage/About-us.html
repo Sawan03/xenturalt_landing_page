@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Vision</title>
+  <link rel="stylesheet" href="About.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'lato';
+}
+
+body {
+  background: #f9faff;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Highlight spans */
+.highlight {
+  color: #2567ff;
+  font-weight: 700;
+}
+
+/* About Section */
+.about-section1 {
+  max-width: 1200px;
+  margin: 50px auto 80px;
+  padding: 0 20px;
+}
+
+.about-section .content h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #111;
+}
+
+/* Vision section layout */
+.vision-section {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.vision-section .text {
+  flex: 1 1 450px;
+  color: #444;
+}
+
+.vision-section .text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.vision-section .text p {
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.vision-section .image {
+  flex: 1 1 450px;
+  text-align: center;
+}
+
+.vision-section .image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  box-shadow: 0 12px 28px rgb(37 103 255 / 0.3);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.vision-section .image img:hover {
+  transform: scale(1.05);
+}
+
+/* Team Section */
+.Team {
+  background: #fff;
+  padding: 60px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgb(37 103 255 / 0.1);
+}
+
+.Team h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+.Team h1 span {
+  color: #2567ff;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #e2e8ff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #2567ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgb(37 103 255 / 0.15);
+  user-select: none;
+}
+
+.filter-btn:hover {
+  background: #2567ff;
+  color: white;
+  box-shadow: 0 8px 15px rgb(37 103 255 / 0.4);
+}
+
+.filter-btn.active {
+  background: #2567ff;
+  color: white;
+  box-shadow: 0 8px 20px rgb(37 103 255 / 0.5);
+}
+
+/* Team Cards */
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgb(37 103 255 / 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgb(37 103 255 / 0.25);
+}
+
+.team-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 4px solid #2567ff;
+  transition: border-color 0.3s ease;
+}
+
+.team-card:hover img {
+  border-color: #4a85ff;
+}
+
+.team-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.team-card p {
+  color: #666;
+  font-weight: 600;
+}
+
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  background: #f7f9fc;
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-item h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #2567ff;
+  margin-bottom: 8px;
+  letter-spacing: -1.5px;
+}
+
+.stat-item h2 span.count {
+  display: inline-block;
+  min-width: 50px;
+}
+
+.stat-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* Animate counting number color change */
+.count {
+  transition: color 0.4s ease;
+}
+
+.about-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  background: #f9fafc;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+}
+
+.about-left p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  border-left: 4px solid #2567ff;
+  padding-left: 16px;
+}
+
+.about-right p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+  }
+
+  .about-left {
+    margin-bottom: 30px;
+  }
+}
+
+/* Awards Section */.awards-section {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  background: #f0f4ff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(37, 103, 255, 0.15);
+}
+
+.award-box {
+  flex: 0 0 150px;
+  background: #2567ff;
+  color: white;
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(37, 103, 255, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.award-box h1 {
+  font-size: 5rem;
+  margin: 0 0 15px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.award-box p {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.award-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.award-item {
+  display: flex;
+  gap: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 3px 15px rgba(37, 103, 255, 0.1);
+  align-items: flex-start;
+  transition: box-shadow 0.3s ease;
+}
+
+.award-item:hover {
+  box-shadow: 0 8px 25px rgba(37, 103, 255, 0.3);
+}
+
+.award-item img {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.award-item h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.3rem;
+  color: #2567ff;
+  font-weight: 700;
+}
+
+.award-item .title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.award-item .subtext {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .awards-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .award-box {
+    flex: none;
+    width: 100%;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+  }
+
+  .award-details {
+    flex-direction: column;
+  }
+
+  .award-item {
+    flex-direction: row;
+    padding: 15px 20px;
+  }
+}
+
+/* Brands Section */
+.brands-section {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.brands-section img {
+  filter: drop-shadow(0 2px 2px rgb(37 103 255 / 0.3));
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 48px;
+  height: 48px;
+}
+
+.brands-section img:hover {
+  transform: scale(1.2);
+}
+
+/* Feedback Section */
+.feedback-section {
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 60px 20px;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgb(37 103 255 / 0.15);
+}
+
+.feedback-section h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.feedback-section .highlight {
+  color: #2567ff;
+}
+
+/* Feedback slider */
+.feedback-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  scroll-behavior: smooth;
+  padding-bottom: 15px;
+}
+
+.feedback-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.feedback-slider::-webkit-scrollbar-thumb {
+  background: #2567ff;
+  border-radius: 20px;
+}
+
+.feedback-card {
+  background: #f0f5ff;
+  flex: 0 0 300px;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgb(37 103 255 / 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.feedback-card:hover {
+  box-shadow: 0 18px 40px rgb(37 103 255 / 0.3);
+}
+
+.feedback-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2567ff;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.feedback-card:hover img {
+  border-color: #4a85ff;
+}
+
+.feedback-card h2 {
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #222;
+  text-align: center;
+}
+
+.feedback-card p {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.feedback-card .stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  color: #2567ff;
+  font-size: 1.4rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 950px) {
+  .vision-section {
+    flex-direction: column;
+  }
+  .vision-section .image,
+  .vision-section .text {
+    flex: unset;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .award-box {
+    flex: 0 0 100px;
+    font-size: 3rem;
+    padding: 30px 15px;
+  }
+  .awards-section {
+    flex-direction: column;
+  }
+  .awards-section .award-details {
+    flex: unset;
+  }
+  .brands-section img {
+    width: 36px;
+    height: 36px;
+  }
+}
+</style>
+</head>
+<body>
+      <div id="navbar"></div>
+       <section class="about-section1">
+    <div class="content">
+      <h1>About us</h1>
+      <div class="vision-section">
+        <div class="text">
+          <h2>Our Vision</h2>
+          <p><strong>Xenturalt Codes IT Solutions</strong>, our vision is to be a global leader in delivering innovative IT solutions that empower businesses to thrive in the digital age. We aim to help our clients unlock their full potential by providing customized, cutting-edge services that drive growth, efficiency, and success.</p>
+          <p>By staying ahead of industry trends and embracing new technologies, we are committed to helping businesses navigate the digital landscape and turn challenges into opportunities. Our goal is to be the trusted partner that businesses rely on for transformative solutions and lasting results.</p>
+        </div>
+        <div class="image">
+          <img src="https://www.yourwebhub.in/vission.png" alt="Vision and Mission" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section class="Team">
+   <h1>Meet Our Team</h1>
+
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-role="all">All</button>
+    <button class="filter-btn" data-role="directors">Directors</button>
+    <button class="filter-btn" data-role="management">Management</button>
+    <button class="filter-btn" data-role="web">Web Developers</button>
+    <button class="filter-btn" data-role="app">App Developers</button>
+    <button class="filter-btn" data-role="marketing">Marketing</button>
+  </div>
+
+  <div class="team-container" id="team-container">
+
+    <!-- Team Member Cards -->
+    <div class="team-card" data-role="directors">
+      <img src="https://www.yourwebhub.in/team/roni-bhi.jpg" alt="Roni Mitra">
+      <h2>Roni Mitra</h2>
+      <p>Establisher</p>
+    </div>
+
+  </div>
+
+   
+<section class="stats-section">
+  <div class="stat-item">
+    <h2 class="count" data-target="100">0%</h2>
+    <p>Satisfaction</p>
+  </div>
+  <div class="stat-item">
+    <h2 class="count" data-target="839">0+</h2>
+    <p>Products</p>
+  </div>
+  <div class="stat-item">
+    <h2>
+      <span class="count" data-target="365">0</span> / 
+      <span class="count" data-target="7">0</span>
+    </h2>
+    <p>Support</p>
+  </div>
+</section>
+
+
+
+
+  <script>
+const filterButtons = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.team-card');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const role = button.getAttribute('data-role');
+
+    // Toggle button active class
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Filter cards
+    cards.forEach(card => {
+      const cardRole = card.getAttribute('data-role');
+      card.style.display = (role === 'all' || cardRole === role) ? 'block' : 'none';
+    });
+  });
+});
+
+
+
+
+  </script>
+<script>
+  const counters = document.querySelectorAll('.count');
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const update = () => {
+      const increment = Math.ceil(target / 100); // animation speed
+      if (count < target) {
+        count += increment;
+        if (count > target) count = target;
+        counter.textContent = formatValue(count, target);
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = formatValue(target, target);
+      }
+    };
+
+    const formatValue = (value, target) => {
+      if (target === 100) return `${value}%`;
+      if (target === 839) return `${value}+`;
+      return value;
+    };
+
+    update();
+  });
+    fetch("navbar.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("navbar").innerHTML = html)
+      .catch(console.error);
+
+       fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+</script>
+
+
+  <!-- About Section -->
+  <section class="about-section">
+  <div class="about-left">
+    <p>
+      CodeMake is the best toolkit,<br />
+      This template covers<br />
+      beautiful layouts with more<br />
+      features that you need.
+    </p>
+  </div>
+  <div class="about-right">
+    <p>
+      Since 2005, we believe in delivering quality work to our customers. 
+      We create digital ideas that stand out and provide the best solutions 
+      built at the intersection of creativity and technology.
+    </p>
+    <p>
+      We work with people dedicated to their craft. 
+      Our efforts are guided by core values that ensure everything you need 
+      is packed into this theme.
+    </p>
+  </div>
+</section>
+
+   <section class="awards-section">
+    <div class="award-box">
+      <h1>11</h1>
+      <p>Best design awarded<br>for best work and<br>design</p>
+    </div>
+
+    <div class="award-details">
+      <div class="award-item">
+       <img src="https://img.icons8.com/ios-filled/50/2567ff/positive-dynamic.png" alt="icon" />
+        <h3>CSS DESIGN AWARDS</h3>
+        <p>Best web design works for you</p>
+        <p class="subtext">
+          High quality design submit your website for Best web design works chance to win site of the day.
+        </p>
+      </div>
+
+      <div class="award-item">
+        <img src="https://img.icons8.com/ios-filled/50/2567ff/positive-dynamic.png" alt="icon" />
+        <h3>UI DESIGN AWARDS</h3>
+        <p>Keep the interface simple</p>
+        <p class="subtext">
+          Elements and factors related to the UI design can make the success of your website.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <section class="brands-section">
+    <img src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook" />
+    <img src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
+    <img src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin" />
+    <img src="https://img.icons8.com/color/48/paypal.png" alt="paypal" />
+    <img src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube" />
+  </section>
+   <section class="feedback-section">
+    <h1><span class="highlight">Client</span> Feedback</h1>
+    <div class="feedback-slider">
+      <!-- Card 1 -->
+      <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Hiroshi Sato" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Hiroshi Sato</span></h3>
+        <p>Very professional and knowledgeable. I highly recommend Web Hub!</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Aya Nakamura" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Aya Nakamura</span></h3>
+        <p>Web Hub went above and beyond to optimize my website performance!</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Li Wei" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Li Wei</span></h3>
+        <p>Fast and reliable service. I will definitely work with them again!</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Sakura Chen</span></h3>
+        <p>Great experience working with Web Hub. Highly recommended!</p>
+      </div>
+       <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Adam Wix</span></h3>
+        <p>Great experience working with Web Hub. Highly recommended!</p>
+      </div>
+       <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Lily James</span></h3>
+        <p>Great experience working with Web Hub. Highly recommended!</p>
+      </div>
+       <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Alex Wing Chen</span></h3>
+        <p>Great experience working with Web Hub. Highly recommended!</p>
+      </div>
+       <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">James Boa</span></h3>
+        <p>Great experience working with Web Hub. Highly recommended!</p>
+      </div>
+       <div class="feedback-card">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sakura Chen" class="avatar"/>
+        <div class="stars">★★★★★</div>
+        <h3>@<span class="username">Wex Chum</span></h3>
+        <p>Great experience working with Xenturalt. Highly recommended!</p>
+      </div>
+    </div>
+  </section>
+  
+        <div id="footer-placeholder"></div>
+ 
+  
+</body>
+
+</html>
+
