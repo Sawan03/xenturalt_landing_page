@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Under Construction | Xentural Codes</title>
+  <link rel="stylesheet" href="styles.css" />
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e2e8f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      animation: slideUp 0.8s ease-in-out;
+    }
+
+    .emoji {
+      font-size: 48px;
+      animation: bounce 1.5s infinite;
+    }
+
+    h1 {
+      color: #ef4444;
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 10px 0 20px;
+    }
+
+    .contact-info {
+      font-size: 15px;
+      color: #374151;
+    }
+
+    .contact-info a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      margin: 10px 0 20px;
+    }
+
+    .social-links a {
+      margin: 0 6px;
+      color: #1f2937;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #10b981;
+    }
+
+    .home-btn {
+      background: #10b981;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .home-btn:hover {
+      background-color: #059669;
+    }
+
+    /* Animations */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .emoji {
+        font-size: 36px;
+      }
+
+      .home-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">🛠️</div>
+    <h1>Page Under Construction</h1>
+    <p>
+      Oops! This page is currently under development.<br>
+      But don’t worry — we’re working hard to bring you something awesome soon! 🚧
+    </p>
+
+    <div class="contact-info">
+      <p><strong>💬 Need Help or Looking for Something Specific?</strong></p>
+      
+      <p>📧 Email: <a href="mailto:info@xenturaltcodes.in">info@xenturaltcodes.in</a></p>
+
+      <div class="social-links">
+        🔗 Follow us on:
+        <a href="https://www.facebook.com/profile.php?id=61572697829955" target="_blank">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="https://www.linkedin.com/company/xenturalt-codes-it-solution/posts/?feedView=all" target="_blank">LinkedIn</a> |
+        <a href="https://api.whatsapp.com/send?phone=+917980110265" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+
+    <a href="index.html" class="home-btn">🔗 Go to Homepage</a>
+  </div>
+</body>
+</html>
+
