@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Page</title>
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      line-height: 1.6;
+    }
+
+    .blog-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .blog-container h1 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      color: #777;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .blogs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .blog-info h3 {
+      margin: 0 0 10px;
+      color: #222;
+      font-size: 1.25rem;
+    }
+
+    .blog-info .meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .blog-info p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .like-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px 15px;
+    }
+
+    .like-button {
+      border: none;
+      background: none;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #ff5252;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+
+    .like-button:hover {
+      color: #e60000;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 0;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 95%;
+      max-width: 900px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .modal-content h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+
+    .modal-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+      text-align: left;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        padding: 20px;
+      }
+
+      .close {
+        font-size: 24px;
+        right: 15px;
+        top: 10px;
+      }
+
+      .modal-content img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="blog-container">
+    <h1>Blog Page</h1>
+    <p class="subtext">646 inspirational designs, illustrations, and graphic elements from the world’s best designers.</p>
+    <div class="blogs">
+      <!-- Blog Card Template -->
+      <div class="blog-card" onclick="openModal('blog1')">
+        <img src="img/travel.jpg" alt="Blog 1" />
+        <div class="blog-info">
+          <h3>Exploring the Wonders of Hiking</h3>
+          <div class="meta">Travel • Apr 15, 2025</div>
+          <p>Discover serene trails and epic adventures...</p>
+        </div>
+        <div class="like-section">
+          <button class="like-button" onclick="event.stopPropagation(); toggleLike(this)">
+            ❤️ <span class="like-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="openModal('blog2')">
+        <img src="img/interview.jpg" alt="Blog 2" />
+        <div class="blog-info">
+          <h3>Design Interviews & Tips</h3>
+          <div class="meta">Design • Mar 28, 2025</div>
+          <p>Frankie Sillivan on motivation and creativity...</p>
+        </div>
+        <div class="like-section">
+          <button class="like-button" onclick="event.stopPropagation(); toggleLike(this)">
+            ❤️ <span class="like-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="openModal('blog3')">
+        <img src="img/home.jpg" alt="Blog 3" />
+        <div class="blog-info">
+          <h3>The Art of Home Transformation</h3>
+          <div class="meta">Lifestyle • Feb 10, 2025</div>
+          <p>Craft your dream home with minimal effort...</p>
+        </div>
+        <div class="like-section">
+          <button class="like-button" onclick="event.stopPropagation(); toggleLike(this)">
+            ❤️ <span class="like-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="blogModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    const blogData = {
+      blog1: {
+        title: "Exploring the Wonders of Hiking",
+        image: "img/travel.jpg",
+        content: `
+          <h2>Exploring the Wonders of Hiking</h2>
+          <p>This article explores the top hiking destinations for adventure seekers. From serene mountain trails to coastal treks, experience the peace and thrill of nature.</p>
+        `
+      },
+      blog2: {
+        title: "Design Interviews & Tips",
+        image: "img/interview.jpg",
+        content: `
+          <h2>Design Interviews & Tips</h2>
+          <p>Discover how leading designers tackle creativity and freelancing in today’s fast-paced industry. Insights from Frankie Sillivan and others.</p>
+        `
+      },
+      blog3: {
+        title: "The Art of Home Transformation",
+        image: "img/home.jpg",
+        content: `
+          <h2>The Art of Home Transformation</h2>
+          <p>Learn how to make the most of your living space with design tips and product inspiration that turn houses into homes.</p>
+        `
+      }
+    };
+
+    function openModal(blogId) {
+      const modal = document.getElementById('blogModal');
+      const body = document.getElementById('modal-body');
+      const blog = blogData[blogId];
+      body.innerHTML = `<img src="${blog.image}" alt="${blog.title}">` + blog.content;
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('blogModal').style.display = 'none';
+    }
+
+    function toggleLike(button) {
+      const countSpan = button.querySelector('.like-count');
+      let count = parseInt(countSpan.textContent, 10);
+      countSpan.textContent = count + 1;
+      button.disabled = true;
+      button.style.opacity = 0.6;
+    }
+  </script>
+</body>
+</html>
