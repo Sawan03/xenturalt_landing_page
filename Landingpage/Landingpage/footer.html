@@ -1,87 +1,10 @@
-<!-- footer.html -->
-<section class="cta-banner">
-  <div class="cta-container">
-    <div class="cta-text">
-      <h2>Ready to Elevate Your Digital Presence?</h2>
-      <p>Let’s turn your vision into a high-performing digital reality.</p>
-    </div>
-    <div class="cta-button">
-      <a href="#" class="schedule-btn">Schedule A Call →</a>
-    </div>
-  </div>
-</section>
 
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Left: Logo & Contact -->
-    <div class="footer-left">
-      <img src="img/Layer_2-removebg-preview.png" alt="Xenturalit Logo" class="logo" />
-      <p>📞 +91 7980 110 265</p>
-      <p>📧 mittranvir15@gmail.com</p>
-      <p>📍 SPO 208, Second floor<br />Sector 124, Sunny Enclave Mohali</p>
-    </div>
-
-    <!-- Right: Columns -->
-    <div class="footer-right">
-      <div class="footer-column">
-        <h4>COMPANY</h4>
-        <ul>
-          <li>About us</li>
-          <li>Portfolio</li>
-          <li>Career</li>
-        </ul>
-      </div>
-       <div class="footer-column">
-        <h4>RESOURCES</h4>
-        <ul>
-          <li>Blogs</li>
-          <li>FAQs</li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>SERVICES</h4>
-        <ul>
-          <li>Web Development</li>
-          <li>Mobile app Development</li>
-          <li>SEO services</li>
-          <li>WordPress Development</li>
-          <li>Social media marketing</li>
-        </ul>
-      </div>
-     
-      <div class="footer-column">
-        <h4>LEGAL</h4>
-        <ul>
-          <li>Privacy policy</li>
-          <li>Terms & Conditions</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Social Icons -->
-  <div class="social-icons">
-    <div class="social-icons-left">
-      <a href="#"><img src="img/clutch.jpeg" alt="Clutch" /></a>
-      <a href="#"><img src="img/google.png" alt="Google" /></a>
-      <a href="#"><img src="img/hub.png" alt="Hub" /></a>
-      <a href="#"><img src="img/agency.png" alt="Agency" /></a>
-    </div>
-    <div class="social-icons-right">
-      <a href="#"><img src="img/facebook (1).png" alt="Facebook" /></a>
-      <a href="#"><img src="img/linkedin.png" alt="LinkedIn" /></a>
-      <a href="#"><img src="img/instagram (1).png" alt="Instagram" /></a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Powered By Xenturalt Codes © 2025. All rights reserved.</p>
-    <button class="scroll-top">↑</button>
-  </div>
-</footer>
 
 <style>
 /* CTA Banner */
+.body {
+  padding-top: 15px;
+}
 .cta-banner {
   background: linear-gradient(270.11deg, #00DCEF 0.09%, #3B82F6 99.91%);
   color: white;
@@ -101,11 +24,15 @@
   font-size: 28px;
   font-weight: 700;
   margin: 0 0 10px;
+  color:  #FFFFFF;
+
 }
 .cta-text p {
   font-size: 16px;
   opacity: 0.9;
   margin: 0;
+  color: #B3EAE2;
+;
 }
 .schedule-btn {
   background: transparent;
@@ -121,6 +48,26 @@
   background-color: white;
   color: #3B82F6;
 }
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-icon,
+.store-badge {
+  height: 40px; /* You can adjust this height */
+  object-fit: contain;
+}
+
+
+.footer-img {
+  height: 40px;
+  object-fit: contain;
+  max-width: 100%;
+}
+
 
 /* Footer */
 .footer {
@@ -204,16 +151,18 @@
   gap: 25px;
 }
 .social-icons-left a img {
-  width: 156.55px;
-  height: 60.17px;
+  width: 450.582px;
+  height: 61.144px;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 .social-icons-left a img:hover {
   transform: scale(1.05);
 }
+
 .social-icons-right img {
   width: 36px;
   height: 36px;
@@ -248,6 +197,127 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.footer-column a {
+  text-decoration: none;     /* Removes underline */
+  color: black;              /* Makes the text black */
+  font-family: inherit;      /* Keeps the same font as before */
+  font-size: inherit;        /* Keeps the same font size */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Optional: underline on hover for better UX */
+}
+
+  .popup-button {
+      padding: 1rem 2rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-button:hover {
+      background-color: #1e40af;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .popup-content h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .popup-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .popup-group {
+      flex: 1 1 calc(50% - 1rem);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popup-group.full {
+      flex: 1 1 100%;
+    }
+
+    .popup-group label {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .popup-group input,
+    .popup-group select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .popup-submit {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #2563eb;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-submit:hover {
+      background-color: #1e40af;
+    }
+
+    @media (max-width: 600px) {
+      .popup-group {
+        flex: 1 1 100%;
+      }
+    }
+
+
 
 /* Responsive */
 @media (max-width: 1200px) {
@@ -315,10 +385,187 @@
     gap: 10px;
   }
 }
+
 </style>
-<script>document.querySelector('.scroll-top').addEventListener('click', () => {
+<div class="body"><!-- footer.html -->
+<section class="cta-banner">
+  <div class="cta-container">
+    <div class="cta-text">
+      <h2>Ready to Elevate Your Digital Presence?</h2>
+      <p>Let’s turn your vision into a high-performing digital reality.</p>
+    </div>
+    <div class="cta-button">
+      <a href="#" class="schedule-btn" onclick="openPopup()">Schedule A Call →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Left: Logo & Contact -->
+    <div class="footer-left">
+      <img src="img/Layer_2-removebg-preview.png" alt="Xenturalit Logo" class="logo" />
+      <p>📞 +91 7980 110 265</p>
+      <p>📧 info@xenturaltcodes.in</p>
+      <p>📍 SPO 208, Second floor<br />Sector 124, Sunny Enclave Mohali</p>
+      <p> UAE (WhatsApp): +971 55 164 9266</p>
+    <p> Canada (WhatsApp): +1 (416) 858-7595</p>
+
+    </div>
+
+    <!-- Right: Columns -->
+    <div class="footer-right">
+  <div class="footer-column">
+    <h4>COMPANY</h4>
+    <ul>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="careers.html">Career</a></li>
+    </ul>
+  </div>
+  <div class="footer-column">
+    <h4>RESOURCES</h4>
+    <ul>
+      <li><a href="404.html">Blogs</a></li> <!-- Assuming you have blogs.html -->
+      <li><a href="FAQ.html">FAQs</a></li>   <!-- Assuming you have faqs.html -->
+    </ul>
+  </div>
+  <div class="footer-column">
+    <h4>SERVICES</h4>
+    <ul>
+      <li><a href="web-development.html">Web Development</a></li>
+      <li><a href="Android.html">Mobile App Development</a></li>
+      <li><a href="digital-ser.html">SEO Services</a></li> <!-- You may rename or adjust this link -->
+      <li><a href="wordpress-development.html">WordPress Development</a></li> <!-- Assumed file -->
+      <li><a href="digital-ser.html">Social Media Marketing</a></li> <!-- Reusing same link -->
+    </ul>
+  </div>
+</div>
+
+     
+      <div class="footer-column">
+        <h4>LEGAL</h4>
+        <ul>
+          
+          <li><a href="p&c.html">Privacy policy</a></li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <div class="social-icons-left">
+      <a href="#"><img src="img/final img.jpeg" alt="Agency" /></a>
+    </div>
+    <div class="social-icons-right">
+      <a href="https://www.facebook.com/profile.php?id=61572697829955"><img src="img/facebook (1).png" alt="Facebook" /></a>
+      <a href="https://www.linkedin.com/company/xenturalt-codes-it-solution/posts/?feedView=all"><img src="img/linkedin.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="img/instagram (1).png" alt="Instagram" /></a>
+    </div>
+    
+  </div>
+ 
+ <div class="footer-bottom">
+  <p>Powered By Xenturalt Codes IT Solution Pvt. Ltd. © 2025. All rights reserved.</p>
+  
+  <!-- Icons Row -->
+  
+  <div class="footer-icons">
+  <img src="img/payment.jpeg" alt="Visa" class="payment-icon" />
+  <a href="https://play.google.com/store" target="_blank">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+      alt="Get it on Google Play"
+      class="store-badge"
+    />
+  </a>
+</div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top">↑</button>
+</div>
+
+
+ <!-- Modal -->
+  <div class="popup-overlay" id="popupForm">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">×</button>
+      <h2>Schedule a Call with Our Team</h2>
+      <form class="popup-form">
+        <div class="popup-group">
+          <label for="popupFirstName">First Name</label>
+          <input type="text" id="popupFirstName" name="popupFirstName" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupLastName">Last Name</label>
+          <input type="text" id="popupLastName" name="popupLastName" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupEmail">E-mail</label>
+          <input type="email" id="popupEmail" name="popupEmail" placeholder="@company.com" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupPhone">Phone Number</label>
+          <input type="tel" id="popupPhone" name="popupPhone" placeholder="+123 456 789" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupDate">Preferred Date</label>
+          <input type="date" id="popupDate" name="popupDate" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupTime">Preferred Time</label>
+          <input type="time" id="popupTime" name="popupTime" required />
+        </div>
+
+        <div class="popup-group full">
+          <label for="popupServices">Interested Services</label>
+          <select id="popupServices" name="popupServices" required>
+            <option value="">-- Select a Service --</option>
+            <option value="web-development">Web Development</option>
+            <option value="mobile-apps">Mobile App Development</option>
+            <option value="ui-ux">UI/UX Design</option>
+            <option value="consulting">IT Consulting</option>
+            <option value="marketing">Digital Marketing</option>
+          </select>
+        </div>
+
+        <div class="popup-group full">
+          <label for="popupCompany">Company Name</label>
+          <input type="text" id="popupCompany" name="popupCompany" placeholder="Xenturalt Pvt.Ltd" required />
+        </div>
+
+        <div class="popup-group full">
+          <button type="submit" class="popup-submit">Schedule a Call</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</footer>
+</div>
+<script>
+
+  function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+document.querySelector('.scroll-top').addEventListener('click', () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
-});</script>
+
+  
+});
+
+</script>
