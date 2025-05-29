@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Android Development Service</title>
   <link rel="stylesheet" href="style.css" />
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0; padding: 0;
       font-family: 'Lato', sans-serif;
-      background: #6f6f6f;
+      background: #f6f6f6;
       color: #0f0f0f;
       overflow-x: hidden;
     }
     .service-section { padding: 50px 20px; animation: fadeIn 1s ease-out both; }
     .service-container {
       max-width: 1200px; display: flex;
-      background: #f6f6f6; border-radius: 30px;
+      background: white; border-radius: 30px;
       margin: auto; flex-wrap: wrap; position: relative;
     }
     .service-right {
@@ -80,6 +81,8 @@
     }
     .explore-button:hover { background: white; color: black; }
 
+
+
     /* Modal pop-up */
     #modal {
       position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -134,6 +137,8 @@
     <div class="service-container">
 
       <div class="service-right">
+        
+
         <h1>Mobile App Development & Design</h1>
         <p>We design and develop a reliable and efficient mobile application that meets your requirements.</p>
 
@@ -173,7 +178,7 @@
           </div>
           <div class="service-box pink" data-key="flutter">
             <span class="number">03</span>
-            <img src="img/futt.png" alt="Flutter" />
+            <img src="img/banner-flutter-logo-removebg-preview.png" alt="Flutter" />
             <h3>Flutter App<br>Development</h3>
           </div>
           <div class="service-box orange" data-key="react">
@@ -187,101 +192,193 @@
       </div>
     </div>
   </div>
-  <div id="footer-placeholder"></div>
+  
 
-  <script>
-  fetch("navbar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("navbar").innerHTML = html)
-    .catch(console.error);
+<script>
+  const serviceBoxes = document.querySelectorAll(".service-box");
+  const modal = document.getElementById("modal");
+  const closeBtn = document.querySelector(".close-btn");
 
-     fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
+  const modalTitle = document.getElementById("modal-title");
+  const modalDesc = document.getElementById("modal-desc");
+  const modalDelivery = document.getElementById("modal-delivery");
+  const modalTech = document.getElementById("modal-tech");
+  const modalPackages = document.getElementById("modal-packages");
 
-  const data = {
+  const appDevelopmentPackages = {
     ios: {
       title: "iOS App Development",
       desc: "Native Swift/Obj-C apps, Apple HIG compliance, App Store submission.",
       delivery: ["UI/UX prototyping", "Swift coding", "Automated QA", "App Store support"],
       tech: ["Swift", "Xcode", "UIKit", "TestFlight"],
       packages: [
-        { title: "Starter", desc: "$1500 - MVP with basic features" },
-        { title: "Standard", desc: "$3000 - Medium complexity app" },
-        { title: "Pro", desc: "$5000+ - Enterprise-level app" }
+        { title: "Starter", desc: "₹1,25,000 - Basic UI & MVP" },
+        { title: "Growth", desc: "₹2,50,000 - Full features & APIs" },
+        { title: "Enterprise", desc: "₹4,50,000 - Advanced scalability" }
       ]
     },
     android: {
       title: "Android App Development",
-      desc: "Kotlin/Java apps optimized for all Android devices, Google Play ready.",
-      delivery: ["Material Design UI", "Java/Kotlin", "Device testing", "Play Store release"],
+      desc: "We develop high-performance, scalable Android applications using Kotlin/Java tailored for all devices.",
+      delivery: ["Material UI design", "Kotlin coding", "Play Store support", "Crash-free release"],
       tech: ["Kotlin", "Java", "Android Studio", "Firebase"],
       packages: [
-        { title: "Starter", desc: "$1300 - MVP basic Android app" },
-        { title: "Standard", desc: "$2800 - Integrated features app" },
-        { title: "Pro", desc: "$4500+ - Full-scale solution" }
+        { title: "Starter", desc: "₹1,10,000 - Core features" },
+        { title: "Professional", desc: "₹2,00,000 - Full features & Play Store" },
+        { title: "Enterprise", desc: "₹3,75,000 - API integration + scaling" }
       ]
     },
     flutter: {
       title: "Flutter App Development",
-      desc: "Cross-platform apps with native performance using Flutter & Dart.",
-      delivery: ["Single codebase", "Hot reload", "Dart logic", "Deployment support"],
-      tech: ["Flutter", "Dart", "Firebase", "Bloc/Provider"],
+      desc: "Cross-platform mobile apps with beautiful UI and native performance using Flutter.",
+      delivery: ["UI/UX design", "Dart development", "Cross-device testing", "App deployment"],
+      tech: ["Flutter", "Dart", "Firebase", "GetX/Bloc"],
       packages: [
-        { title: "Starter", desc: "$1800 - Basic cross-platform app" },
-        { title: "Standard", desc: "$3500 - Advanced UI & logic" },
-        { title: "Pro", desc: "$6000+ - Feature-rich scalable app" }
+        { title: "Starter", desc: "₹90,000 - MVP app" },
+        { title: "Growth", desc: "₹1,75,000 - Core features" },
+        { title: "Enterprise", desc: "₹3,25,000 - Advanced app with API" }
       ]
     },
     react: {
       title: "React Native Development",
-      desc: "Modern JavaScript-based apps with real native performance.",
-      delivery: ["Reusable components", "React Navigation", "Fast refresh", "App deployment"],
-      tech: ["React Native", "Expo/CLI", "Redux", "TypeScript"],
+      desc: "Cross-platform development with React Native for both iOS and Android using a single codebase.",
+      delivery: ["Component design", "Reusable code", "API integration", "OTA updates"],
+      tech: ["React Native", "Expo", "Redux", "TypeScript"],
       packages: [
-        { title: "Starter", desc: "$1700 - Simple React Native MVP" },
-        { title: "Standard", desc: "$3200 - Multi-screen app" },
-        { title: "Pro", desc: "$5500+ - Scalable full app suite" }
+        { title: "Starter", desc: "₹1,00,000 - Basic features" },
+        { title: "Growth", desc: "₹2,00,000 - Native modules included" },
+        { title: "Enterprise", desc: "₹3,50,000 - Scalable architecture" }
       ]
     }
   };
 
-  const modal = document.getElementById("modal");
-  const title = document.getElementById("modal-title");
-  const desc = document.getElementById("modal-desc");
-  const delivery = document.getElementById("modal-delivery");
-  const tech = document.getElementById("modal-tech");
-  const packages = document.getElementById("modal-packages");
-  const closeBtn = document.querySelector(".close-btn");
-
-  document.querySelectorAll(".service-box").forEach(box => {
+  serviceBoxes.forEach(box => {
     box.addEventListener("click", () => {
       const key = box.getAttribute("data-key");
-      const info = data[key];
+      const data = appDevelopmentPackages[key];
 
-      title.textContent = info.title;
-      desc.textContent = info.desc;
+      if (!data) return;
 
-      delivery.innerHTML = info.delivery.map(item => `<li>${item}</li>`).join("");
-      tech.innerHTML = info.tech.map(item => `<li>${item}</li>`).join("");
-      packages.innerHTML = info.packages.map(pkg =>
-        `<div class="pkg-card"><h4>${pkg.title}</h4><p>${pkg.desc}</p></div>`
-      ).join("");
+      modalTitle.textContent = data.title;
+      modalDesc.textContent = data.desc;
+
+      // Delivery
+      modalDelivery.innerHTML = "";
+      data.delivery.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        modalDelivery.appendChild(li);
+      });
+
+      // Tech Stack
+      modalTech.innerHTML = "";
+      data.tech.forEach(tech => {
+        const li = document.createElement("li");
+        li.textContent = tech;
+        modalTech.appendChild(li);
+      });
+
+      // Packages
+      modalPackages.innerHTML = "";
+      data.packages.forEach(pkg => {
+        const div = document.createElement("div");
+        div.className = "pkg-card";
+        div.innerHTML = `<h4>${pkg.title}</h4><p>${pkg.desc}</p>`;
+        modalPackages.appendChild(div);
+      });
 
       modal.style.display = "flex";
     });
   });
 
-  closeBtn.addEventListener("click", () => modal.style.display = "none");
-
-  // Optional: close modal when clicking outside the content
-  modal.addEventListener("click", e => {
-    if (e.target === modal) modal.style.display = "none";
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
   });
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+
+  fetch("navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      // Modal logic for navbar (consultationModal, if exists)
+      window.openModal = function () {
+        const modal = document.getElementById("consultationModal");
+        if (modal) modal.style.display = "block";
+      };
+
+      window.closeModal = function () {
+        const modal = document.getElementById("consultationModal");
+        if (modal) modal.style.display = "none";
+      };
+
+      // Toggle button logic for mobile nav
+      const toggleBtn = document.getElementById("toggleBtn");
+      const navItems = document.getElementById("navItems");
+      const dropdown = document.getElementById("dropdown");
+      const servicesLink = document.getElementById("servicesLink");
+
+      const updateNavVisibility = () => {
+        if (window.innerWidth <= 768) {
+          navItems?.classList.remove("show");
+        } else {
+          navItems?.classList.add("show");
+        }
+      };
+
+      updateNavVisibility();
+      window.addEventListener("resize", updateNavVisibility);
+
+      if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", () => {
+          navItems.classList.toggle("show");
+        });
+      }
+
+      if (servicesLink && dropdown) {
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+        });
+      }
+    })
+    .catch(console.error);
+
+  fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })
+      .catch(console.error);
+
+    // Popup functions
+    function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
 </script>
 
+
+<div id="footer-placeholder"></div>
 </body>
 </html>
 <!-- Compare this snippet from Landingpage/Landingpage/software.html: -->
