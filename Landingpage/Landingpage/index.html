@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Landing Page - Xenturalt Codes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+<meta charset="UTF-8">
+<title>Xenturalt Codes IT Solution Pvt. Ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Xenturalt Codes provides innovative web development, software solutions, and tech-driven services to grow your digital presence.">
+<meta name="keywords" content="Xenturalt Codes, web development, software solutions, tech services, frontend, backend, full-stack development, React, Flask, Python">
+<meta name="author" content="Xenturalt Codes Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Xenturalt Codes - Innovative Web Development Solutions">
+<meta property="og:description" content="Empowering your business with modern tech solutions and web development expertise.">
+<meta property="og:image" content="https://www.xenturaltcodes.in/assets/og-image.jpg">
+<meta property="og:url" content="https://www.xenturaltcodes.in/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xenturalt Codes - Innovative Web Development Solutions">
+<meta name="twitter:description" content="Empowering your business with modern tech solutions and web development expertise.">
+<meta name="twitter:image" content="https://www.xenturaltcodes.in/assets/og-image.jpg">
+
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">  
   
@@ -13,8 +33,7 @@
 </head>
 <body>
 
-
- <div id="navbar"></div>
+<div id="navbar"></div>
 <!-- 🔷 Hero Section -->
 <div class="hero">
   <!-- Left Content -->
@@ -33,12 +52,62 @@
       creative strategies that bring your vision to life.
     </p>
     </div>
-  <button class="ctn-btn">Get A Quote <span>➔</span></button>
-    <div class="rating">
-      <img src="img/Clients.png" alt="Client faces">
-      <span>2K Rating (4.9 average)</span>
-    </div>
+  <button class="ctn-btn"  id="btnOpenQuote">Get A Quote <span>➔</span></button>
+    
   </div>
+
+  <div  id="quoteModal" class="modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.6);  font-family: 'Lato', sans-serif;">
+  <div class="modal-content" style="background: #fff; margin: 60px auto; padding: 30px 40px; border-radius: 8px; max-width: 700px; position: relative; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+    
+    <button id="closeQuoteBtn" style="position: absolute; top: 15px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; color: #888;">&times;</button>
+
+    <h1 style="color:#f97316; margin-bottom:15px;">📝 Get a Quote</h1>
+    <p style="font-size:16px; line-height:1.6; margin-bottom:30px; color:#333;">
+      Ready to Elevate Your Digital Presence?<br><br>
+      At Xenturalt Codes IT Solution Pvt. Ltd., we specialize in delivering innovative and result-driven solutions in web development, mobile app development, and custom software. Our expert team is dedicated to crafting tailored digital experiences that help businesses grow, streamline operations, and achieve their goals.<br><br>
+      Let's Collaborate! Please fill out the form below with your project details, and our team will get back to you promptly with a customized quote.
+    </p>
+
+    <h2 style="color:#f97316; margin-bottom:15px;">📋 Quote Request Form</h2>
+
+    <form id="modalQuoteForm" action="#" method="POST">
+      <label for="modalName">Name:</label>
+      <input type="text" id="modalName" name="modalName" placeholder="Your Full Name" required />
+
+      <label for="modalEmail">Email:</label>
+      <input type="email" id="modalEmail" name="modalEmail" placeholder="Your Email Address" required />
+
+      <label for="modalPhone">Phone Number:</label>
+      <input type="tel" id="modalPhone" name="modalPhone" placeholder="Your Contact Number" />
+
+      <label for="modalCompany">Company Name:</label>
+      <input type="text" id="modalCompany" name="modalCompany" placeholder="Your Company Name" />
+
+      <label for="modalProjectType">Project Type:</label>
+      <select id="modalProjectType" name="modalProjectType" required>
+        <option value="" disabled selected>Select a project type</option>
+        <option value="Website Development">Website Development</option>
+        <option value="Mobile App Development">Mobile App Development</option>
+        <option value="SEO">SEO</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="modalDescription">Project Description:</label>
+      <textarea id="modalDescription" name="modalDescription" placeholder="Briefly describe your project requirements" required></textarea>
+
+      <label for="modalBudget">Budget Range:</label>
+      <input type="text" id="modalBudget" name="modalBudget" placeholder="Your estimated budget" />
+
+      <label for="modalTimeline">Timeline:</label>
+      <input type="text" id="modalTimeline" name="modalTimeline" placeholder="Expected project duration or deadline" />
+
+      <button type="submit" class="submit-btn" style="margin-top:25px; background:#f97316; color:#fff; border:none; padding:12px 25px; font-size:16px; font-weight:700; border-radius:5px; cursor:pointer; transition: background-color 0.3s ease;">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
 
   <!-- Right Content -->
   <div class="hero-right">
@@ -417,6 +486,7 @@
           we've got the answers you need.
         </p>
         <button class="explore-btn">Explore More →</button>
+        
       </div>
 
       <div class="right">
@@ -477,67 +547,161 @@
   </div>
 </section>
 
+<div id="footer-placeholder"></div>
 
-  <div id="footer-placeholder"></div>
+<script defer>
 
-
-    <script>
-
-
-  fetch('navbar.html')
-    .then(res => res.text())
+ 
+ fetch("navbar.html")
+    .then(r => r.text())
     .then(html => {
-      document.getElementById('navbar').innerHTML = html;
-    });
+      document.getElementById("navbar").innerHTML = html;
 
-     fetch("footer.html")
+      // Modal logic
+      window.openModal = function () {
+        document.getElementById("consultationModal").style.display = "block";
+      };
+
+      window.closeModal = function () {
+        document.getElementById("consultationModal").style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("consultationModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Toggle button logic (after navbar is inserted)
+      const toggleBtn = document.getElementById("toggleBtn");
+      const navItems = document.getElementById("navItems");
+      const dropdown = document.getElementById("dropdown");
+      const servicesLink = document.getElementById("servicesLink");
+
+      const updateNavVisibility = () => {
+        if (window.innerWidth <= 768) {
+          navItems?.classList.remove("show");
+        } else {
+          navItems?.classList.add("show");
+        }
+      };
+
+      updateNavVisibility(); // initial
+
+      if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", () => {
+          navItems.classList.toggle("show");
+        });
+      }
+
+      if (servicesLink && dropdown) {
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+        });
+      }
+
+      window.addEventListener("resize", updateNavVisibility);
+    })
+    .catch(console.error);
+
+    fetch("footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
-      });
-      // Simple tab switching logic
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })
+      .catch(console.error);
 
-          contents.forEach(c => c.classList.remove('active'));
-          document.getElementById(tab.dataset.tab).classList.add('active');
-        });
+    // Popup functions
+    function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // --- Tab switching logic ---
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        contents.forEach(c => c.classList.remove('active'));
+        const activeContent = document.getElementById(tab.dataset.tab);
+        if (activeContent) activeContent.classList.add('active');
       });
-      // simple to create button
+    
+    });
+  });
+
+    // --- Accordion (+ / -) logic ---
     const items = document.querySelectorAll(".accordion-item");
-     
-    // This is the function for + and - in the accordion
-     items.forEach(item => {
-     item.addEventListener("click", () => {
-      items.forEach(i => {
-       if (i !== item) {
-        i.classList.remove("active");
-        i.querySelector(".symbol").textContent = "+"; // Reset symbol for others
-      }
-    });
 
-    const isActive = item.classList.toggle("active");
-    const symbol = item.querySelector(".symbol");
-    symbol.textContent = isActive ? "−" : "+";
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        items.forEach(i => {
+          if (i !== item) {
+            i.classList.remove("active");
+            const symbol = i.querySelector(".symbol");
+            if (symbol) symbol.textContent = "+";
+          }
+        });
+
+        const isActive = item.classList.toggle("active");
+        const symbol = item.querySelector(".symbol");
+        if (symbol) symbol.textContent = isActive ? "−" : "+";
       });
     });
-
-     
   
- const toggleBtn = document.getElementById("toggleBtn");
-    const navItems = document.getElementById("navItems");
 
-    toggleBtn.addEventListener("click", () => {
-      navItems.classList.toggle("show");
-    });
+   // Get modal and buttons
+  const quoteModal = document.getElementById('quoteModal');
+  const btnOpenQuote = document.getElementById('btnOpenQuote');
+  const closeQuoteBtn = document.getElementById('closeQuoteBtn');
 
+  // Open modal
+  btnOpenQuote.addEventListener('click', () => {
+    quoteModal.style.display = 'block';
+  });
 
+  // Close modal on close button click
+  closeQuoteBtn.addEventListener('click', () => {
+    quoteModal.style.display = 'none';
+  });
 
-    </script>
+  // Close modal on clicking outside modal content
+  window.addEventListener('click', (event) => {
+    if (event.target === quoteModal) {
+      quoteModal.style.display = 'none';
+    }
+  });
+
+  // Optional: form submission handler
+  const modalForm = document.getElementById('modalQuoteForm');
+  modalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for your quote request! We will get back to you soon.');
+    modalForm.reset();
+    quoteModal.style.display = 'none';
+  });
+</script>
+
 </body>
 </html>
