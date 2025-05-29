@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web Development Service</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">  
   <style>
     body {
       margin: 0; padding: 0;
       font-family: 'Inter', sans-serif;
-      background: #6f6f6f;
+      background: #f6f6ff;
       color: #0f0f0f;
       overflow-x: hidden;
     }
     .service-section { padding: 50px 20px; animation: fadeIn 1s ease-out both; }
     .service-container {
       max-width: 1200px; margin: auto;
-      display: flex; background: #f6f6f6;
+      display: flex; background: white;
       border-radius: 30px; overflow: visible;
       flex-wrap: wrap; position: relative;
     }
@@ -126,6 +127,9 @@
       font-size: 16px; cursor: pointer;
     }
 
+
+
+
     @media (max-width: 600px) {
       .pkg-grid { grid-template-columns: 1fr; }
     }
@@ -141,13 +145,11 @@
   <div class="service-section">
     <div class="service-container">
       <div class="service-right">
+       
+
         <h1>Web Development & Design</h1>
         <p>We build fast, responsive, and visually appealing websites tailored to your business needs.</p>
 
-        <div class="tab-buttons">
-          <button class="active">Frontend</button>
-          <button>Backend</button>
-        </div>
 
         <!-- Modal -->
         <div id="modal">
@@ -170,73 +172,158 @@
         <div class="service-boxes">
           <div class="service-box blue active" data-key="html">
             <span class="number">01</span>
-            <img src="img/html-css.png" alt="HTML/CSS" />
+            <img src="img/ft-removebg-preview.png" alt="HTML/CSS" />
             <h3>HTML/CSS<br>Development</h3>
           </div>
           <div class="service-box green" data-key="react">
             <span class="number">02</span>
-            <img src="img/react.png" alt="ReactJS" />
+            <img src="img/reactjs-removebg-preview.png" alt="ReactJS" />
             <h3>ReactJS<br>Development</h3>
           </div>
           <div class="service-box purple" data-key="node">
             <span class="number">03</span>
-            <img src="img/node.png" alt="NodeJS" />
+            <img src="img/nodejs.png" alt="NodeJS" />
             <h3>NodeJS<br>Backend</h3>
           </div>
           <div class="service-box orange" data-key="ecom">
             <span class="number">04</span>
-            <img src="img/ecommerce.png" alt="E-Commerce" />
+            <img src="img/ecom-removebg-preview.png" alt="E-Commerce" />
             <h3>E-Commerce<br>Solutions</h3>
           </div>
         </div>
 
-        <a href="#" class="explore-button">Explore All Services →</a>
+        <a href="404.html" class="explore-button">Explore All Services →</a>
       </div>
     </div>
   </div>
   <div id="footer-placeholder"></div>
 
   <script>
-    fetch("navbar.html")
-      .then(r => r.text())
-      .then(html => document.getElementById("navbar").innerHTML = html)
-      .catch(console.error);
+   fetch("navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
 
-       fetch("footer.html")
+      // Modal logic
+      window.openModal = function () {
+        document.getElementById("consultationModal").style.display = "block";
+      };
+
+      window.closeModal = function () {
+        document.getElementById("consultationModal").style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("consultationModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Toggle button logic (after navbar is inserted)
+      const toggleBtn = document.getElementById("toggleBtn");
+      const navItems = document.getElementById("navItems");
+      const dropdown = document.getElementById("dropdown");
+      const servicesLink = document.getElementById("servicesLink");
+
+      const updateNavVisibility = () => {
+        if (window.innerWidth <= 768) {
+          navItems?.classList.remove("show");
+        } else {
+          navItems?.classList.add("show");
+        }
+      };
+
+      updateNavVisibility(); // initial
+
+      if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", () => {
+          navItems.classList.toggle("show");
+        });
+      }
+
+      if (servicesLink && dropdown) {
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+        });
+      }
+
+      window.addEventListener("resize", updateNavVisibility);
+    })
+    .catch(console.error);
+
+     fetch("footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
-      });
+
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })
+      .catch(console.error);
+
+    // Popup functions
+    function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
 
     const data = {
       html: {
-        title: "HTML/CSS Development",
-        desc: "Pixel-perfect markup and responsive styling for all devices.",
-        delivery: ["Semantic HTML", "CSS Flex/Grid", "Responsive layouts", "Cross-browser testing"],
-        tech: ["HTML5", "CSS3", "Sass", "Bootstrap"],
-        packages: { Basic: "$800", Standard: "$1,500", Premium: "$2,500" }
-      },
-      react: {
-        title: "ReactJS Development",
-        desc: "Modern single-page apps with React, Redux, and optimized performance.",
-        delivery: ["Component design", "State management", "API integration", "Unit testing"],
-        tech: ["React", "Redux", "Webpack", "Jest"],
-        packages: { Basic: "$1,200", Standard: "$2,200", Premium: "$3,500" }
-      },
-      node: {
-        title: "NodeJS Backend",
-        desc: "Scalable RESTful APIs, real-time services, and database integration.",
-        delivery: ["Express setup", "Database schema", "API endpoints", "Auth & security"],
-        tech: ["Node.js", "Express", "MongoDB", "JWT"],
-        packages: { Basic: "$1,000", Standard: "$2,000", Premium: "$3,000" }
-      },
-      ecom: {
-        title: "E-Commerce Solutions",
-        desc: "Full-stack e-commerce websites with payment gateways and inventory management.",
-        delivery: ["Shop setup", "Payment integration", "Admin panel", "SEO optimization"],
-        tech: ["React", "Node.js", "Stripe", "MongoDB"],
-        packages: { Basic: "$2,000", Standard: "$4,000", Premium: "$6,000" }
-      }
+  title: "HTML/CSS Development",
+  desc: "Pixel-perfect markup and responsive styling for all devices.",
+  delivery: ["Semantic HTML", "CSS Flex/Grid", "Responsive layouts", "Cross-browser testing"],
+  tech: ["HTML5", "CSS3", "Sass", "Bootstrap"],
+  packages: { 
+    Basic: "₹10,000",
+    Standard: "₹25,000",
+    Premium: "₹1,25,000"
+  }
+},
+react: {
+  title: "ReactJS Development",
+  desc: "Modern single-page apps with React, Redux, and optimized performance.",
+  delivery: ["Component design", "State management", "API integration", "Unit testing"],
+  tech: ["React", "Redux", "Webpack", "Jest"],
+  packages: { 
+    Basic: "₹25,000",
+    Standard: "₹1,25,000",
+    Premium: "₹2,50,000"
+  }
+},
+node: {
+  title: "NodeJS Backend",
+  desc: "Scalable RESTful APIs, real-time services, and database integration.",
+  delivery: ["Express setup", "Database schema", "API endpoints", "Auth & security"],
+  tech: ["Node.js", "Express", "MongoDB", "JWT"],
+  packages: { 
+    Basic: "₹40,000",
+    Standard: "₹1,75,000",
+    Premium: "₹5,50,000"
+  }
+},
+ecom: {
+  title: "E-Commerce Solutions",
+  desc: "Full-stack e-commerce websites with payment gateways and inventory management.",
+  delivery: ["Shop setup", "Payment integration", "Admin panel", "SEO optimization"],
+  tech: ["React", "Node.js", "Stripe", "MongoDB"],
+  packages: { 
+    Basic: "₹40,000",
+    Standard: "₹1,75,000",
+    Premium: "₹5,50,000"
+  }
+}
+
     };
 
     const cards = document.querySelectorAll('.service-box');
