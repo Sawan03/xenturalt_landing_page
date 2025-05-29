@@ -17,7 +17,6 @@
       margin: 0;
       background-color: #f9f9f9;
       color: #333;
-      padding: 0;
     }
 
     .container {
@@ -148,7 +147,8 @@
       margin-bottom: 10px;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -183,14 +183,17 @@
 </head>
 <body>
 
+  <!-- Navbar -->
   <div id="navbar"></div>
 
+  <!-- Header -->
   <div class="header">
     <h1>Career With Us</h1>
     <p>We care about everyone. What’s your next is our first.</p>
   </div>
 
   <div class="container">
+    <!-- Introduction -->
     <div class="intro-section">
       <h2>Careers at Xenturalt Codes IT Solution Pvt Ltd</h2>
       <p>We’re more than a tech company — we’re a team of innovators, creators, and problem-solvers who believe in transforming businesses through smart technology, web design, and digital marketing.</p>
@@ -206,38 +209,39 @@
       </ul>
     </div>
 
+    <!-- Open Positions -->
     <h2 style="margin-bottom: 20px;">Open Positions</h2>
     <div class="cards-container">
       <div class="card">
         <h3>Web Designer (WordPress/Wix)</h3>
         <p class="info"><strong>Experience:</strong> 1+ years</p>
         <p class="info"><strong>Location:</strong> Remote / On-site</p>
-        <button class="btn" onclick="openModal1('Web Designer (WordPress/Wix)', 'Create beautiful and responsive websites using WordPress or Wix. Must know basic SEO and have an eye for modern design.')">View Details</button>
+        <button class="btn" onclick="openJobModal('Web Designer (WordPress/Wix)', 'Create beautiful and responsive websites using WordPress or Wix. Must know basic SEO and have an eye for modern design.')">View Details</button>
       </div>
 
       <div class="card">
         <h3>Digital Marketing Executive</h3>
         <p class="info"><strong>Experience:</strong> 1–2 years</p>
         <p class="info"><strong>Location:</strong> Remote / On-site</p>
-        <button class="btn" onclick="openModal1('Digital Marketing Executive', 'Looking for someone experienced in Facebook Ads, Google Ads, Canva, SEO and Google My Business.')">View Details</button>
+        <button class="btn" onclick="openJobModal('Digital Marketing Executive', 'Looking for someone experienced in Facebook Ads, Google Ads, Canva, SEO and Google My Business.')">View Details</button>
       </div>
 
       <div class="card">
         <h3>Graphic Designer (Freelance)</h3>
         <p class="info"><strong>Experience:</strong> 1+ years</p>
         <p class="info"><strong>Location:</strong> Remote</p>
-        <button class="btn" onclick="openModal1('Graphic Designer (Freelance)', 'Design engaging graphics using Canva and Adobe Photoshop/Illustrator. Must submit a portfolio.')">View Details</button>
+        <button class="btn" onclick="openJobModal('Graphic Designer (Freelance)', 'Design engaging graphics using Canva and Adobe Photoshop/Illustrator. Must submit a portfolio.')">View Details</button>
       </div>
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Job Modal -->
   <div id="jobModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close" onclick="closeJobModal()">&times;</span>
       <h3 id="modalTitle">Job Title</h3>
       <p id="modalDescription">Job description will appear here...</p>
-      <button class="btn" onclick="showApplyForm()">Apply Now</button>
+      <button class="btn" onclick="toggleApplyForm()">Apply Now</button>
 
       <form id="applyForm" style="display:none;" onsubmit="submitApplication(event)">
         <input type="hidden" id="jobRole" name="jobRole">
@@ -251,18 +255,83 @@
     </div>
   </div>
 
+  <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
   <script>
-    // Load Navbar and Footer
+    // Modal Handling
+    function openJobModal(title, description) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDescription").innerText = description;
+      document.getElementById("jobRole").value = title;
+      document.getElementById("applyForm").style.display = "none";
+      document.getElementById("jobModal").style.display = "block";
+    }
+
+    function closeJobModal() {
+      document.getElementById("jobModal").style.display = "none";
+    }
+
+    function toggleApplyForm() {
+      document.getElementById("applyForm").style.display = "block";
+    }
+
+    function submitApplication(event) {
+      event.preventDefault();
+      alert("Application submitted successfully!");
+      event.target.reset();
+      closeJobModal();
+    }
     fetch("navbar.html")
-      .then(res => res.text())
+      .then(r => r.text())
       .then(html => {
         document.getElementById("navbar").innerHTML = html;
-        initializeNavbar?.();
-      });
 
-     fetch("footer.html")
+        window.openModal = () => {
+          document.getElementById("consultationModal").style.display = "block";
+        };
+        window.closeModal = () => {
+          document.getElementById("consultationModal").style.display = "none";
+        };
+        window.onclick = (event) => {
+          const modal = document.getElementById("consultationModal");
+          if (event.target === modal) modal.style.display = "none";
+        };
+
+        const toggleBtn = document.getElementById("toggleBtn");
+        const navItems = document.getElementById("navItems");
+        const dropdown = document.getElementById("dropdown");
+        const servicesLink = document.getElementById("servicesLink");
+
+        const updateNavVisibility = () => {
+          if (window.innerWidth <= 768) {
+            navItems?.classList.remove("show");
+          } else {
+            navItems?.classList.add("show");
+          }
+        };
+
+        updateNavVisibility();
+        if (toggleBtn && navItems) {
+          toggleBtn.addEventListener("click", () => {
+            navItems.classList.toggle("show");
+          });
+        }
+        if (servicesLink && dropdown) {
+          servicesLink.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              dropdown.classList.toggle("active");
+            }
+          });
+        }
+
+        window.addEventListener("resize", updateNavVisibility);
+      })
+      .catch(console.error);
+
+    // Load Footer
+    fetch("footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
@@ -276,37 +345,15 @@
       })
       .catch(console.error);
 
-        function openPopup() {
+    // Popup functions
+    function openPopup() {
       document.getElementById("popupForm").style.display = "flex";
     }
 
     function closePopup() {
       document.getElementById("popupForm").style.display = "none";
     }
-
-    // Modal Handling
-    function openModal1(title, description) {
-      document.getElementById("modalTitle").innerText = title;
-      document.getElementById("modalDescription").innerText = description;
-      document.getElementById("jobRole").value = title;
-      document.getElementById("applyForm").style.display = "none";
-      document.getElementById("jobModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("jobModal").style.display = "none";
-    }
-
-    function showApplyForm() {
-      document.getElementById("applyForm").style.display = "block";
-    }
-
-    function submitApplication(event) {
-      event.preventDefault();
-      alert("Application submitted successfully!");
-      closeModal();
-      event.target.reset();
-    }
   </script>
+
 </body>
 </html>
