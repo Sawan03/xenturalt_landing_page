@@ -311,80 +311,89 @@
       background-color: #1e40af;
     }
 
-    @media (max-width: 600px) {
-      .popup-group {
-        flex: 1 1 100%;
-      }
-    }
-
-
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .footer-container {
+   @media (max-width: 992px) {
+  .cta-container {
     flex-direction: column;
-    gap: 40px;
-  }
-  .footer-left,
-  .footer-right {
-    width: 100%;
-  }
-  .footer-right {
-    justify-content: space-between;
-    gap: 30px;
-  }
-  .footer-column {
-    width: calc(50% - 20px);
-  }
-}
-@media (max-width: 768px) {
-  .footer-right {
+    text-align: center;
     gap: 20px;
   }
+  .cta-text h2 {
+    font-size: 24px;
+  }
+  .cta-text p {
+    font-size: 15px;
+  }
+  .schedule-btn {
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+
   .footer-column {
     width: 100%;
   }
+
   .social-icons {
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     padding: 0;
   }
-  .social-icons-left,
-  .social-icons-right {
-    justify-content: center;
-    flex-wrap: wrap;
+
+  .social-icons-left a img {
+    width: 90%;
+    height: auto;
   }
-  .footer-left .logo {
-    width: 110px;
+
+  .social-icons-right img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
+
 @media (max-width: 480px) {
-  .footer {
-    padding: 30px 15px 15px;
-  }
   .cta-text h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
+
   .cta-text p {
-    font-size: 14px;
-  }
-  .schedule-btn {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-  .footer-column h4 {
     font-size: 13px;
   }
+
+  .schedule-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .footer-left p {
+    font-size: 13px;
+  }
+
+  .footer-column h4,
   .footer-column ul li {
     font-size: 13px;
   }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-  }
 }
+
+
 
 </style>
 <div class="body"><!-- footer.html -->
