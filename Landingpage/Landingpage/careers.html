@@ -5,6 +5,8 @@
   <title>Careers - Xenturalt Codes IT Solution Pvt Ltd</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
   <style>
     * {
       box-sizing: border-box;
@@ -85,20 +87,19 @@
       margin: 5px 0;
     }
 
-   .btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background-color: #3B82F6;
-  color: white;
-  text-decoration: none;
-  border: none; /* <-- Add this line */
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-}
-
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #3B82F6;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
     .modal {
       display: none;
@@ -168,10 +169,21 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 28px; }
+      .header p { font-size: 16px; }
+      .intro-section h2 { font-size: 22px; }
+    }
+
+    @media (max-width: 480px) {
+      .modal-content { width: 95%; }
+    }
   </style>
 </head>
 <body>
-    <div id="navbar"></div>
+
+  <div id="navbar"></div>
 
   <div class="header">
     <h1>Career With Us</h1>
@@ -184,36 +196,37 @@
       <p>We’re more than a tech company — we’re a team of innovators, creators, and problem-solvers who believe in transforming businesses through smart technology, web design, and digital marketing.</p>
       <p>If you're passionate, curious, and ready to grow, we’d love to work with you.</p>
 
-      <h3>🌟 Why Work With Us?</h3>
+      <h3>Why Work With Us?</h3>
       <ul>
-        <li>✅ A creative and collaborative work culture</li>
-        <li>✅ Opportunities for skill development and career growth</li>
-        <li>✅ Flexible work environment (remote options available)</li>
-        <li>✅ Hands-on experience with real projects</li>
-        <li>✅ Work with domestic, international, and local clients</li>
+        <li>A creative and collaborative work culture</li>
+        <li>Opportunities for skill development and career growth</li>
+        <li>Flexible work environment (remote options available)</li>
+        <li>Hands-on experience with real projects</li>
+        <li>Work with domestic, international, and local clients</li>
       </ul>
     </div>
 
     <h2 style="margin-bottom: 20px;">Open Positions</h2>
     <div class="cards-container">
-      
       <div class="card">
         <h3>Web Designer (WordPress/Wix)</h3>
         <p class="info"><strong>Experience:</strong> 1+ years</p>
         <p class="info"><strong>Location:</strong> Remote / On-site</p>
-        <button class="btn" onclick="openModal('Web Designer (WordPress/Wix)', 'Create beautiful and responsive websites using WordPress or Wix. Must know basic SEO and have an eye for modern design.')">View Details</button>
+        <button class="btn" onclick="openModal1('Web Designer (WordPress/Wix)', 'Create beautiful and responsive websites using WordPress or Wix. Must know basic SEO and have an eye for modern design.')">View Details</button>
       </div>
+
       <div class="card">
         <h3>Digital Marketing Executive</h3>
         <p class="info"><strong>Experience:</strong> 1–2 years</p>
         <p class="info"><strong>Location:</strong> Remote / On-site</p>
-        <button class="btn" onclick="openModal('Digital Marketing Executive', 'Looking for someone experienced in Facebook Ads, Google Ads, Canva, SEO and Google My Business.')">View Details</button>
+        <button class="btn" onclick="openModal1('Digital Marketing Executive', 'Looking for someone experienced in Facebook Ads, Google Ads, Canva, SEO and Google My Business.')">View Details</button>
       </div>
+
       <div class="card">
         <h3>Graphic Designer (Freelance)</h3>
         <p class="info"><strong>Experience:</strong> 1+ years</p>
         <p class="info"><strong>Location:</strong> Remote</p>
-        <button class="btn" onclick="openModal('Graphic Designer (Freelance)', 'Design engaging graphics using Canva and Adobe Photoshop/Illustrator. Must submit a portfolio.')">View Details</button>
+        <button class="btn" onclick="openModal1('Graphic Designer (Freelance)', 'Design engaging graphics using Canva and Adobe Photoshop/Illustrator. Must submit a portfolio.')">View Details</button>
       </div>
     </div>
   </div>
@@ -237,50 +250,63 @@
       </form>
     </div>
   </div>
-    <div id="footer-placeholder"></div>
-  <script>
 
-    fetch('navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('navbar').innerHTML = html;
-    });
-     
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Load Navbar and Footer
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("navbar").innerHTML = html;
+        initializeNavbar?.();
+      });
+
      fetch("footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
-      });
 
-    function openModal(title, description) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalDescription').innerText = description;
-      document.getElementById('jobRole').value = title;
-      document.getElementById('applyForm').style.display = "none";
-      document.getElementById('jobModal').style.display = 'block';
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })
+      .catch(console.error);
+
+        function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
+    // Modal Handling
+    function openModal1(title, description) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDescription").innerText = description;
+      document.getElementById("jobRole").value = title;
+      document.getElementById("applyForm").style.display = "none";
+      document.getElementById("jobModal").style.display = "block";
     }
 
     function closeModal() {
-      document.getElementById('jobModal').style.display = 'none';
+      document.getElementById("jobModal").style.display = "none";
     }
 
     function showApplyForm() {
-      document.getElementById('applyForm').style.display = "block";
+      document.getElementById("applyForm").style.display = "block";
     }
 
     function submitApplication(event) {
       event.preventDefault();
       alert("Application submitted successfully!");
-      document.getElementById('applyForm').reset();
       closeModal();
-    }
-
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('jobModal')) {
-        closeModal();
-      }
+      event.target.reset();
     }
   </script>
-
 </body>
 </html>
