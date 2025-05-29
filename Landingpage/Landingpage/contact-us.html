@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us</title>
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -174,6 +175,24 @@
     color: #dc2626; /* red */
     font-weight: 600;
   }
+   .back-button {
+  background-color: #2567ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(37, 103, 255, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 30px; /* spacing below the button */
+}
+
+.back-button:hover {
+  background-color: #184ed9;
+  transform: translateX(-5px);
+}
 
     @media (max-width: 768px) {
       .contact-info-section {
@@ -188,8 +207,11 @@
 <body>
     <div id="navbar"></div>
   <section class="contact-section">
+    
     <h1 class="contact-title">LET'S BUILD SOMETHING AMAZING TOGETHER</h1>
     <div class="contact-card">
+    
+
       <h2>How can we assist?</h2>
       <p>Please provide a brief summary below. Within 12 business hours, we'll respond to you...</p>
       <form class="contact-form">
@@ -231,32 +253,46 @@
 
   <!-- Full Width Contact Info and Map -->
   <section class="contact-info-section">
-    <div class="contact-address">
-      <h3><strong>How to Find Us</strong></h3>
-      <p><strong>Main Branch</strong><br>
+  <div class="contact-address">
+    <h3><strong>How to Find Us</strong></h3>
+    
+    <!-- Main Branch -->
+    <p><strong>Our Main Branch</strong><br>
       SPO 208<br>
       Second floor<br>
       Sector 124<br>
-      Sunny Enclave Mohali</p>
+      Sunny Enclave Mohali
+    </p>
 
-      <h3><strong>When to Visit</strong></h3>
-      <pre>
-Monday to Friday: 10 AM - 8 PM
-Saturday:         10 AM - 5 PM
+    <!-- Added Other Branch -->
+    <p><strong>Our Other Branch</strong><br>
+      11/2B Baishnabpara, 1st Lane (Mahesh)<br>
+      Mahesh -1, Serampur Uttarpara<br>
+      Hooghly-712202, West Bengal
+    </p>
+
+    <h3><strong>Office Timing</strong></h3>
+    <pre>
+Monday to Friday: 10 AM - 7 PM
+Saturday:         Closed 
 Sunday:           Closed
-      </pre>
-      <p><strong>Email:</strong> hello@example.com</p>
-      <p><strong>Phone:</strong> +91 9876543210</p>
-    </div>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3427.154075813367!2d76.6752913754461!3d30.747346374603736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedc6fe963c67%3A0x59acfa434b77c1b6!2sSunny%20Enclave%2C%20Kharar%2C%20Punjab%20140301!5e0!3m2!1sen!2sin!4v1716447622740!5m2!1sen!2sin"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-  </section>
+    </pre>
+    <p><strong>Email:</strong> info@xenturaltcodes.in</p>
+    <p><strong>Phone:</strong> +91 7980 110 265</p>
+      <p> UAE (WhatsApp): +971 55 164 9266</p>
+    <p> Canada (WhatsApp): +1 (416) 858-7595</p>
+  </div>
+
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3427.154075813367!2d76.6752913754461!3d30.747346374603736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedc6fe963c67%3A0x59acfa434b77c1b6!2sSunny%20Enclave%2C%20Kharar%2C%20Punjab%20140301!5e0!3m2!1sen!2sin!4v1716447622740!5m2!1sen!2sin"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>
+
    <div id="footer-placeholder"></div>
     <script>
 
@@ -307,20 +343,83 @@ document.querySelector('.contact-form').addEventListener('submit', function(even
     // Reset form
     this.reset();
   });
-    fetch("navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      })
-      .catch(error => {
-        console.error("Error loading navbar:", error);
-      });
+  fetch("navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
 
-       fetch("footer.html")
+      // Modal logic
+      window.openModal = function () {
+        document.getElementById("consultationModal").style.display = "block";
+      };
+
+      window.closeModal = function () {
+        document.getElementById("consultationModal").style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("consultationModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Toggle button logic (after navbar is inserted)
+      const toggleBtn = document.getElementById("toggleBtn");
+      const navItems = document.getElementById("navItems");
+      const dropdown = document.getElementById("dropdown");
+      const servicesLink = document.getElementById("servicesLink");
+
+      const updateNavVisibility = () => {
+        if (window.innerWidth <= 768) {
+          navItems?.classList.remove("show");
+        } else {
+          navItems?.classList.add("show");
+        }
+      };
+
+      updateNavVisibility(); // initial
+
+      if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", () => {
+          navItems.classList.toggle("show");
+        });
+      }
+
+      if (servicesLink && dropdown) {
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+        });
+      }
+
+      window.addEventListener("resize", updateNavVisibility);
+    })
+    .catch(console.error);
+ fetch("footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
-      });
+
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })
+      .catch(console.error);
+
+    // Popup functions
+    function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
 
   </script>
 </body>
