@@ -2763,7 +2763,7 @@ left: 279px;}
 
 /* Blue overlay */
 .overlay {
-  background-color: rgba(37, 99, 235, 0.9); /* Tailwind blue-600 with opacity */
+  background-color: rgba(37, 99, 235, 0.2); /* Tailwind blue-600 with opacity */
   width: 100%;
   height: 100%;
   display: flex;
