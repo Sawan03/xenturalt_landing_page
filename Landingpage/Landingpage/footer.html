@@ -238,7 +238,7 @@
 
     .popup-content {
       background: white;
-      padding: 2rem;
+      padding: 0.5rem;
       border-radius: 10px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       max-width: 600px;
@@ -449,6 +449,67 @@
   </div>
 </section>
 
+
+ <!-- Modal -->
+  <div class="popup-overlay" id="popupForm">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">×</button>
+      <h2>Schedule a Call with Our Team</h2>
+      <form class="popup-form">
+        <div class="popup-group">
+          <label for="popupFirstName">First Name</label>
+          <input type="text" id="popupFirstName" name="popupFirstName" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupLastName">Last Name</label>
+          <input type="text" id="popupLastName" name="popupLastName" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupEmail">E-mail</label>
+          <input type="email" id="popupEmail" name="popupEmail" placeholder="@company.com" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupPhone">Phone Number</label>
+          <input type="tel" id="popupPhone" name="popupPhone" placeholder="+123 456 789" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupDate">Preferred Date</label>
+          <input type="date" id="popupDate" name="popupDate" required />
+        </div>
+
+        <div class="popup-group">
+          <label for="popupTime">Preferred Time</label>
+          <input type="time" id="popupTime" name="popupTime" required />
+        </div>
+
+        <div class="popup-group full">
+          <label for="popupServices">Interested Services</label>
+          <select id="popupServices" name="popupServices" required>
+            <option value="">-- Select a Service --</option>
+            <option value="web-development">Web Development</option>
+            <option value="mobile-apps">Mobile App Development</option>
+            <option value="ui-ux">UI/UX Design</option>
+            <option value="consulting">IT Consulting</option>
+            <option value="marketing">Digital Marketing</option>
+          </select>
+        </div>
+
+        <div class="popup-group full">
+          <label for="popupCompany">Company Name</label>
+          <input type="text" id="popupCompany" name="popupCompany" placeholder="Xenturalt Pvt.Ltd" required />
+        </div>
+
+        <div class="popup-group full">
+          <button type="submit" class="popup-submit">Schedule a Call</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
 <footer class="footer">
   <div class="footer-container">
     <!-- Left: Logo & Contact -->
@@ -535,68 +596,6 @@
   <!-- Scroll to Top Button -->
   <button class="scroll-top">↑</button>
 </div>
-
-
- <!-- Modal -->
-  <div class="popup-overlay" id="popupForm">
-    <div class="popup-content">
-      <button class="popup-close" onclick="closePopup()">×</button>
-      <h2>Schedule a Call with Our Team</h2>
-      <form class="popup-form">
-        <div class="popup-group">
-          <label for="popupFirstName">First Name</label>
-          <input type="text" id="popupFirstName" name="popupFirstName" required />
-        </div>
-
-        <div class="popup-group">
-          <label for="popupLastName">Last Name</label>
-          <input type="text" id="popupLastName" name="popupLastName" required />
-        </div>
-
-        <div class="popup-group">
-          <label for="popupEmail">E-mail</label>
-          <input type="email" id="popupEmail" name="popupEmail" placeholder="@company.com" required />
-        </div>
-
-        <div class="popup-group">
-          <label for="popupPhone">Phone Number</label>
-          <input type="tel" id="popupPhone" name="popupPhone" placeholder="+123 456 789" required />
-        </div>
-
-        <div class="popup-group">
-          <label for="popupDate">Preferred Date</label>
-          <input type="date" id="popupDate" name="popupDate" required />
-        </div>
-
-        <div class="popup-group">
-          <label for="popupTime">Preferred Time</label>
-          <input type="time" id="popupTime" name="popupTime" required />
-        </div>
-
-        <div class="popup-group full">
-          <label for="popupServices">Interested Services</label>
-          <select id="popupServices" name="popupServices" required>
-            <option value="">-- Select a Service --</option>
-            <option value="web-development">Web Development</option>
-            <option value="mobile-apps">Mobile App Development</option>
-            <option value="ui-ux">UI/UX Design</option>
-            <option value="consulting">IT Consulting</option>
-            <option value="marketing">Digital Marketing</option>
-          </select>
-        </div>
-
-        <div class="popup-group full">
-          <label for="popupCompany">Company Name</label>
-          <input type="text" id="popupCompany" name="popupCompany" placeholder="Xenturalt Pvt.Ltd" required />
-        </div>
-
-        <div class="popup-group full">
-          <button type="submit" class="popup-submit">Schedule a Call</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  
 </footer>
 </div>
 <script>
