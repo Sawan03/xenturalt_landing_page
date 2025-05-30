@@ -597,18 +597,38 @@
 </div>
 
 <script>
+  // Function to open the popup
   function openPopup() {
     document.getElementById("popupForm").style.display = "flex";
   }
 
+  // Function to close the popup
   function closePopup() {
     document.getElementById("popupForm").style.display = "none";
   }
 
-  document.querySelector('.scroll-top').addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  // Scroll to top functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Form submission handler
+    const form = document.querySelector('.popup-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically send the form data to your server
+        alert('Thank you for scheduling a call! We will contact you shortly.');
+        closePopup();
+        form.reset();
+      });
+    }
   });
 </script>
